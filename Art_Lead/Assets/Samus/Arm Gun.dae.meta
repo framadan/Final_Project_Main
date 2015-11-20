@@ -1,0 +1,192 @@
+fileFormatVersion: 2
+guid: fa6accd8e3473024681a8db551548f3f
+timeCreated: 1448061670
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: AttachN
+    100004: GunM
+    100006: GunRadiator1M
+    100008: GunRadiator1N
+    100010: GunRadiator1Na
+    100012: GunRadiator2M
+    100014: GunRadiator2N
+    100016: GunRadiator2Na
+    100018: GunRadiator3M
+    100020: GunRadiator3N
+    100022: GunRadiator3Na
+    100024: GunRadiator4M
+    100026: GunRadiator4N
+    100028: GunRadiator4Na
+    100030: GunRadiatorN
+    100032: GunReactor1M
+    100034: GunReactor1N
+    100036: GunReactor2M
+    100038: GunReactor2N
+    100040: GunTop1M
+    100042: GunTop1N
+    100044: GunTop1Na
+    100046: GunTop2M
+    100048: GunTop2N
+    100050: GunTop2Na
+    100052: GunTop3M
+    100054: GunTop3N
+    100056: GunTop3Na
+    100058: GunTop4M
+    100060: GunTop4N
+    100062: GunTop4Na
+    100064: GunTopN
+    100066: GunTorusM
+    100068: GunTorusN
+    100070: mesh0000
+    100072: mesh0001
+    100074: mesh0002
+    100076: mesh0003
+    100078: mesh0004
+    100080: mesh0005
+    100082: mesh0006
+    100084: mesh0007
+    100086: mesh0008
+    100088: mesh0009
+    100090: mesh0010
+    100092: mesh0011
+    100094: RHandN
+    100096: TopN
+    400000: //RootNode
+    400002: AttachN
+    400004: GunM
+    400006: GunRadiator1M
+    400008: GunRadiator1N
+    400010: GunRadiator1Na
+    400012: GunRadiator2M
+    400014: GunRadiator2N
+    400016: GunRadiator2Na
+    400018: GunRadiator3M
+    400020: GunRadiator3N
+    400022: GunRadiator3Na
+    400024: GunRadiator4M
+    400026: GunRadiator4N
+    400028: GunRadiator4Na
+    400030: GunRadiatorN
+    400032: GunReactor1M
+    400034: GunReactor1N
+    400036: GunReactor2M
+    400038: GunReactor2N
+    400040: GunTop1M
+    400042: GunTop1N
+    400044: GunTop1Na
+    400046: GunTop2M
+    400048: GunTop2N
+    400050: GunTop2Na
+    400052: GunTop3M
+    400054: GunTop3N
+    400056: GunTop3Na
+    400058: GunTop4M
+    400060: GunTop4N
+    400062: GunTop4Na
+    400064: GunTopN
+    400066: GunTorusM
+    400068: GunTorusN
+    400070: mesh0000
+    400072: mesh0001
+    400074: mesh0002
+    400076: mesh0003
+    400078: mesh0004
+    400080: mesh0005
+    400082: mesh0006
+    400084: mesh0007
+    400086: mesh0008
+    400088: mesh0009
+    400090: mesh0010
+    400092: mesh0011
+    400094: RHandN
+    400096: TopN
+    4300000: mesh0000
+    4300002: mesh0001
+    4300004: mesh0002
+    4300006: mesh0003
+    4300008: mesh0004
+    4300010: mesh0005
+    4300012: mesh0006
+    4300014: mesh0007
+    4300016: mesh0008
+    4300018: mesh0009
+    4300020: mesh0010
+    4300022: mesh0011
+    9500000: //RootNode
+    13700000: mesh0000
+    13700002: mesh0001
+    13700004: mesh0002
+    13700006: mesh0003
+    13700008: mesh0004
+    13700010: mesh0005
+    13700012: mesh0006
+    13700014: mesh0007
+    13700016: mesh0008
+    13700018: mesh0009
+    13700020: mesh0010
+    13700022: mesh0011
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
