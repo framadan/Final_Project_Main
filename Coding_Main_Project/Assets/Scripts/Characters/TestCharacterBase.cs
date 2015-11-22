@@ -19,6 +19,7 @@ public class TestCharacterBase : MonoBehaviour
     {
         stateMachine = characterAccessor.States;
         stateMachine.AddState(States.test1, ()=> Debug.Log("called Callback Function"));
+        stateMachine.ActiveStates.Add(States.test2);
         stateMachine.DebugActiveStates();
         //stateMachine.RemoveState(States.test1);
 

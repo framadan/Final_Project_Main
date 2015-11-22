@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace StateMachine 
 {
@@ -76,7 +77,7 @@ namespace StateMachine
         {
             get
             {
-                return activeStates;
+                return activeStates.AsReadOnly().ToList();
             }
         }
 
