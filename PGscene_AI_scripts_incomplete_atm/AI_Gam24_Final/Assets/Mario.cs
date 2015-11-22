@@ -4,18 +4,10 @@ using System.Collections.Generic;
 
 public class Mario : AI_Main 
 {
+    public int damage = 25;
+    public bool jumping;
+    
 
-	// Use this for initialization
-	void Start () 
-	{
-		
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-
-	}
 	public void TakeDamage(int damage)
 	{
 		health -= damage;
@@ -29,7 +21,29 @@ public class Mario : AI_Main
 	{
 		if(other.gameObject.tag == "Target")
 		{
-			other.gameObject.GetComponent<>().TakeDamage(damage);
+			self.GetComponent<Mario>().TakeDamage(damage);
+            other.gameObject.GetComponent<AI_Main>().KnockBack(300);
 		}
 	}
+   
+    /*void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "CanJump")
+        {
+            jumping = true;
+            if (jumping == true)
+            {
+                self.layer = LayerMask.NameToLayer("Phasing");
+                self.GetComponent<Rigidbody>().AddForce(Vector3.up * jump);
+                jumping = false; 
+                StartCoroutine(Timer(2));
+            }            
+        }
+    }
+    IEnumerator Timer (float timer)
+    {
+        yield return new WaitForSeconds(timer);
+        self.layer = LayerMask.NameToLayer("Default");
+
+    }*/
 }

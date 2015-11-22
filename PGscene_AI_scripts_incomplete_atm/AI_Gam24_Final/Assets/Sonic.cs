@@ -2,33 +2,26 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Sonic : AI_Main 
+public class Sonic : AI_Main
 {
+    public int damage = 25;
+    public bool jumping;
 
-	// Use this for initialization
-	void Start () 
-	{
-		
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-		if (Vector3.Distance(gameObject.transform.position, currentTarget.transform.position) <= 10.0f)
-		{ 
-			//Animation.Play("LightPunch");
-		}
-		if (Vector3.Distance (gameObject.transform.position, currentTarget.transform.position) <= 8.0f) 
-		{
-			//Animation.Play("HeavyPunch");
-		}
-		if (Vector3.Distance (gameObject.transform.position, currentTarget.transform.position) <= 12.0f) 
-		{
-			//Animation.Play("RangedAttack");
-		}
-		if (Vector3.Distance (gameObject.transform.position, currentTarget.transform.position) <= 5.0f) 
-		{
-			//Animation.Play("Block");
-		}
-	}
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            print("Dead");
+            self.GetComponent<AI_Main>().KnockBack(600);
+        }
+    }
+    public void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Target")
+        {
+            self.GetComponent<Sonic>().TakeDamage(damage);
+            other.gameObject.GetComponent<AI_Main>().KnockBack(300);
+        }
+    }
 }

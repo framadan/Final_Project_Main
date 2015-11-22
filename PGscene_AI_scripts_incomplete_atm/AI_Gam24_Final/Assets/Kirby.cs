@@ -4,25 +4,25 @@ using System.Collections.Generic;
 
 public class Kirby : AI_Main
 {
+    public int damage = 25;
+    public bool jumping;
 
-	// Use this for initialization
-	void Start () 
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+        if (health <= 0)
+        {
+            print("Dead");
+            self.GetComponent<AI_Main>().KnockBack(600);
+        }
+    }
+    public void OnCollisionEnter(Collision other)
 	{
-		
-	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
-
-	}
-	public void TakeDamage(int damage)
-	{
-		health -= damage;
-		if (health <= 0)
+		if(other.gameObject.tag == "Target")
 		{
-			print ("Dead");
-			self.GetComponent<AI_Main>().KnockBack(600);
+			self.GetComponent<Kirby>().TakeDamage(damage);
+            other.gameObject.GetComponent<AI_Main>().KnockBack(300);
 		}
 	}
 }
+
