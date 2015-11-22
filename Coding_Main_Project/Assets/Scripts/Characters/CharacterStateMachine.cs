@@ -2,15 +2,16 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace StateMachine
+namespace StateMachine 
 {
     /*                                              Velocity Based?
          THESE MIGHT NEED TO BE SEPPARATED SINCE THEY ARE NOT EXPLICITLY STATES:   Character Movements States: Standing, (Might be the same)(Walking, Running)
             Character Disable States:   Helpless(falling: ie after up B)(can still move side to side), LedgeGrab, Disabled (when hit with high percent)(nothing works)
             Character Ability States:   Invincible(cant take dmg, everything available), UnMoveable(when using a move), AbilityLockOut(cant use anyothers when using a move), UnCollidable(dashing)
     */
-    public class CharacterStateMachine
+    public class CharacterStateMachine : MonoBehaviour
     {
+        [ReadOnly][SerializeField]
         List<States> activeStates = new List<States>();
         Dictionary<States, StateStruct> activeStatesDict = new Dictionary<States, StateStruct>();
         
@@ -107,6 +108,7 @@ namespace StateMachine
         }
 
     }
+
     public enum States
     {
         test1, test2

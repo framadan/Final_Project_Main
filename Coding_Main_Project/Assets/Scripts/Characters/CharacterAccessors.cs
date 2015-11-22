@@ -11,7 +11,7 @@ namespace Character
 
         void Awake()
         {
-            characterStateMachine = new CharacterStateMachine();
+            characterStateMachine = gameObject.GetComponent<CharacterStateMachine>();
         }
 
         //might not need

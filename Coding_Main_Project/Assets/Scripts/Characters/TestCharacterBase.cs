@@ -20,13 +20,14 @@ public class TestCharacterBase : MonoBehaviour
         stateMachine = characterAccessor.States;
         stateMachine.AddState(States.test1, ()=> Debug.Log("called Callback Function"));
         stateMachine.DebugActiveStates();
-        stateMachine.RemoveState(States.test1);
+        //stateMachine.RemoveState(States.test1);
 
 	}
 	
 	
 	void Update ()
     {
-	
+        if(Input.GetKeyDown(KeyCode.A))
+            stateMachine.AddState(States.test2);
 	}
 }
