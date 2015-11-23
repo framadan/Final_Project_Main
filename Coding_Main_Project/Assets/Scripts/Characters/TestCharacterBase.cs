@@ -18,17 +18,21 @@ public class TestCharacterBase : MonoBehaviour
     void Start ()
     {
         stateMachine = characterAccessor.States;
-        stateMachine.AddState(States.test1, ()=> Debug.Log("called Callback Function"));
-        stateMachine.ActiveStates.Add(States.test2);
+        stateMachine.AddState(States.test1, null, 5f);
+        //stateMachine.ActiveStates.Add(States.test2);
         stateMachine.DebugActiveStates();
-        //stateMachine.RemoveState(States.test1);
+        
 
 	}
-	
+
+    public void TestCallbackFunction()
+    {
+        Debug.Log("Called Debug");
+    }
 	
 	void Update ()
     {
         if(Input.GetKeyDown(KeyCode.A))
-            stateMachine.AddState(States.test2);
-	}
+            stateMachine.RemoveState(States.test1);
+    }
 }

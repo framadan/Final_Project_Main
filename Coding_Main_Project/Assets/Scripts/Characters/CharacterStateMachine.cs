@@ -10,6 +10,7 @@ namespace StateMachine
             Character Disable States:   Helpless(falling: ie after up B)(can still move side to side), LedgeGrab, Disabled (when hit with high percent)(nothing works)
             Character Ability States:   Invincible(cant take dmg, everything available), UnMoveable(when using a move), AbilityLockOut(cant use anyothers when using a move), UnCollidable(dashing)
     */
+
     public class CharacterStateMachine : MonoBehaviour
     {
         [ReadOnly][SerializeField]
@@ -20,19 +21,19 @@ namespace StateMachine
         public struct StateStruct
         {
             public States state;
-            public System.Action callbackFunction;
+            public System.Action onExitFunction;
             public float time;
             //needs access to the timer 
 
-            public StateStruct( States state, System.Action callbackFunction , float time )
+            public StateStruct( States state, System.Action onExitFunction , float time )
             {
                 this.state = state;
-                this.callbackFunction = callbackFunction;
+                this.onExitFunction = onExitFunction;
                 this.time = time;
             }
         }
 
-        public void AddState(States state, System.Action callbackFunction = null, float time = 0)
+        public void AddState(States state, System.Action onExitFunction = null, float time = 0)
         {
             if(activeStates.Contains(state))
             { // need to add functionallity here to add to the reset time if it contains is.
@@ -49,7 +50,7 @@ namespace StateMachine
 
                 activeStates.Add(state);
                 //Create timer class
-                StateStruct temp = new StateStruct(state, callbackFunction , time);// and later pass the Timer that was created
+                StateStruct temp = new StateStruct(state, onExitFunction , time);// and later pass the Timer that was created
                 activeStatesDict.Add(state, temp);
             }
 
@@ -64,8 +65,8 @@ namespace StateMachine
                 if(activeStatesDict.ContainsKey(state))
                 {
                     StateStruct temp = activeStatesDict[state];
-                    if(temp.callbackFunction != null)
-                        temp.callbackFunction();
+                    if(temp.onExitFunction != null)
+                        temp.onExitFunction();
                     activeStatesDict.Remove(state);
                     activeStates.Remove(state);
                 }
