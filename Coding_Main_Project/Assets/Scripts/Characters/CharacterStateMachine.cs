@@ -3,13 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace StateMachine 
+namespace StateMachine
 {
-    /*                                              Velocity Based?
-         THESE MIGHT NEED TO BE SEPPARATED SINCE THEY ARE NOT EXPLICITLY STATES:   Character Movements States: Standing, (Might be the same)(Walking, Running)
-            Character Disable States:   Helpless(falling: ie after up B)(can still move side to side), LedgeGrab, Disabled (when hit with high percent)(nothing works)
-            Character Ability States:   Invincible(cant take dmg, everything available), UnMoveable(when using a move), AbilityLockOut(cant use anyothers when using a move), UnCollidable(dashing)
-    */
+
 
     public class CharacterStateMachine : MonoBehaviour
     {
@@ -21,26 +17,48 @@ namespace StateMachine
         public struct StateStruct
         {
             public States state;
+            public System.Action onEnterFunction;
+            public System.Action onUpdateFunction;
             public System.Action onExitFunction;
             public float time;
-            //needs access to the timer 
+            public Timer timer;
 
-            public StateStruct( States state, System.Action onExitFunction , float time )
+
+            public StateStruct( States state, System.Action onEnterFunction, System.Action onUpdateFunction, System.Action onExitFunction, float time, CharacterStateMachine stateMachine )
             {
                 this.state = state;
+                this.onEnterFunction = onEnterFunction;
+                this.onUpdateFunction = onUpdateFunction;
                 this.onExitFunction = onExitFunction;
                 this.time = time;
+
+                this.timer = new Timer(time, stateMachine, state);
+                if(onEnterFunction != null)
+                    timer.timerStarted += onEnterFunction;
+                if(onUpdateFunction != null)
+                    timer.timerUpdate += onUpdateFunction;
+                if(onExitFunction != null)
+                    timer.timerCompleted += onExitFunction;
             }
         }
 
-        public void AddState(States state, System.Action onExitFunction = null, float time = 0)
+        public void AddState( States state, float time = 0, System.Action onEnterFunction = null, System.Action onUpdateFunction = null, System.Action onExitFunction = null )
         {
             if(activeStates.Contains(state))
-            { // need to add functionallity here to add to the reset time if it contains is.
+            {
                 if(!activeStatesDict.ContainsKey(state))
                     Debug.Log("WT: State " + state + " existed in List but was not in Dict");
                 else
-                    return;
+                {
+                    if(activeStatesDict[state].timer == null || activeStatesDict[state].timer.TimeRemaining > time)
+                        return;
+                    else
+                    {
+                        if(activeStatesDict[state].timer != null)
+                            activeStatesDict[state].timer.ResetTimer(time);
+                        return;
+                    }
+                }
             }
             else
             {
@@ -49,29 +67,23 @@ namespace StateMachine
                         Debug.Log("WT: State " + state + " existed in Dict but was not in List");
 
                 activeStates.Add(state);
-                //Create timer class
-                StateStruct temp = new StateStruct(state, onExitFunction , time);// and later pass the Timer that was created
+                StateStruct temp = new StateStruct(state, onEnterFunction, onUpdateFunction, onExitFunction, time, this);
                 activeStatesDict.Add(state, temp);
             }
-
-            //add state, needs to check if current state is in it and if it is, prolong state.
-            //if timer is not 0 then create a new instance of a timer class and pass it struct
         }
 
-        public void RemoveState(States state)
+        public void RemoveState( States state )
         {
             if(activeStates.Contains(state))
             {
                 if(activeStatesDict.ContainsKey(state))
                 {
                     StateStruct temp = activeStatesDict[state];
-                    if(temp.onExitFunction != null)
-                        temp.onExitFunction();
+                    temp.timer.kill();
                     activeStatesDict.Remove(state);
                     activeStates.Remove(state);
                 }
             }
-           // Also end the Timer
         }
 
         public List<States> ActiveStates
@@ -89,7 +101,7 @@ namespace StateMachine
         /// States you want to check.
         /// </param>
         /// <returns></returns>
-        public bool AreStatesActive(params States[] states)
+        public bool AreStatesActive( params States[] states )
         {
             foreach(States s in states)
             {
@@ -99,7 +111,24 @@ namespace StateMachine
             return true;
         }
 
-        public bool IsStateActive(States state)
+        /// <summary>
+        /// Returns true if all of the States passed in are Not Active. False if one or more was active.
+        /// </summary>
+        /// <param name="states">
+        /// States you want to check.
+        /// </param>
+        /// <returns></returns>
+        public bool AreStatesInActive( params States[] states )
+        {
+            foreach(States s in states)
+            {
+                if(activeStates.Contains(s))
+                    return false;
+            }
+            return true;
+        }
+
+        public bool IsStateActive( States state )
         {
             return activeStates.Contains(state);
         }
@@ -109,11 +138,30 @@ namespace StateMachine
             foreach(States s in activeStates) { Debug.Log(s.ToString()); }
         }
 
+        public void RemoveSimilarStates( States[] stateType, States stateToIgnore )
+        {
+            foreach(States state in stateType)
+            {
+                if(state == stateToIgnore)
+                    continue;
+                RemoveState(state);
+            }
+        }
+
     }
+
+    /*                                              Velocity Based?
+           Character Movements States: Standing, (Might be the same)(Walking, Running)
+           Character Disable States:   Helpless(falling: ie after up B)(can still move side to side), LedgeGrab, Disabled (when hit with high percent)(nothing works)
+           Character Ability States:   Invincible(cant take dmg, everything available), UnMoveable(when using a move), AbilityLockOut(cant use anyothers when using a move), UnCollidable(dashing)
+   */
+    
 
     public enum States
     {
-        test1, test2
+        /*MOVEMENT STATES*/ STANDING, WALKING, SPRINTING, JUMPING, CROUCHING, GROUNDED,
+        /*DISABLE STATES*/  FLINCH, HELPLESS,  LEDGEGRAB, DISABLED,
+        /*ABILITY STATES*/  INVINCIBLE, NOFLINCH, ABILITYLOCKOUT, NOCOLLISION, NOKNOCKBACK, HASITEM
     };
 
 }

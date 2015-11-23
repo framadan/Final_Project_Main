@@ -15,7 +15,7 @@ namespace Character
         }
 
         //might not need
-        public CharacterStateMachine States
+        public CharacterStateMachine StateMachine
         {
             get
             {
