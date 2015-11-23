@@ -1,0 +1,40 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class PlayerSpawner : MonoBehaviour 
+{
+	public GameManager gM;
+	public GameObject[] pSpawners = null;
+
+	int maxPlayers = 4;// connected players will alter value
+
+	void Awake()
+	{
+		gM = GetComponent<GameManager> ();
+		SpawnSet ();
+	}
+	void Start () 
+	{
+		instPlayers ();
+	}
+	
+	// Update is called once per frame
+	void Update () {
+	
+	} 
+	void SpawnSet()
+	{
+		pSpawners[0]= GameObject.Find ("P1Spawner");
+		pSpawners[1] = GameObject.Find ("P2Spawner");
+		pSpawners[2] = GameObject.Find ("P3Spawner");
+		pSpawners[3] = GameObject.Find ("P4Spawner");
+	}
+	void instPlayers()
+	{
+		for(int i = 0; i < maxPlayers; i++)
+		{
+		Instantiate (gM.players[i],pSpawners[i].transform.position,transform.rotation);
+		}
+		
+	}
+}
