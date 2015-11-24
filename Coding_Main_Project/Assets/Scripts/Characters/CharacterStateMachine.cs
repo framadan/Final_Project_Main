@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace StateMachine
 {
@@ -12,19 +13,22 @@ namespace StateMachine
         [ReadOnly][SerializeField]
         List<States> activeStates = new List<States>();
         Dictionary<States, StateStruct> activeStatesDict = new Dictionary<States, StateStruct>();
-        
+
+        States[] movementStates = new States[]  { States.m_WALKING, States.m_STANDING, States.m_SPRINTING};
+        States[] disabledStates = new States[]  { States.d_FLINCH, States.d_HELPLESS, States.d_LEDGE_GRAB, States.d_LAUNCHED, States.d_ABILITY_LOCK, States.d_GRABBED, States.d_BURIED, States.d_ASLEEP, States.d_FROZEN, States.d_VULNERABLE, States.d_STUNNED, States.d_THROWN, States.d_SLOW_MOTION, States.d_TRIPPED };
+        States[] protectiveStates = new States[] { States.NO_COLLISION, States.NO_DAMAGE, States.NO_FLINCH, States.NO_GRAB, States.NO_KNOCKBACK };
 
         public struct StateStruct
         {
             public States state;
-            public System.Action onEnterFunction;
-            public System.Action onUpdateFunction;
-            public System.Action onExitFunction;
+            public Action onEnterFunction;
+            public Action onUpdateFunction;
+            public Action onExitFunction;
             public float time;
             public Timer timer;
 
 
-            public StateStruct( States state, System.Action onEnterFunction, System.Action onUpdateFunction, System.Action onExitFunction, float time, CharacterStateMachine stateMachine )
+            public StateStruct( States state, Action onEnterFunction, Action onUpdateFunction, Action onExitFunction, float time, CharacterStateMachine stateMachine )
             {
                 this.state = state;
                 this.onEnterFunction = onEnterFunction;
@@ -42,7 +46,7 @@ namespace StateMachine
             }
         }
 
-        public void AddState( States state, float time = 0, System.Action onEnterFunction = null, System.Action onUpdateFunction = null, System.Action onExitFunction = null )
+        public void AddState( States state, float time = 0, Action onEnterFunction = null, Action onUpdateFunction = null, Action onExitFunction = null )
         {
             if(activeStates.Contains(state))
             {
@@ -148,20 +152,21 @@ namespace StateMachine
             }
         }
 
-    }
+        public void RemoveAllStates()
+        {
+            foreach(States state in Enum.GetValues(typeof(States)))
+            {
+                RemoveState(state);
+            }
+        }
 
-    /*                                              Velocity Based?
-           Character Movements States: Standing, (Might be the same)(Walking, Running)
-           Character Disable States:   Helpless(falling: ie after up B)(can still move side to side), LedgeGrab, Disabled (when hit with high percent)(nothing works)
-           Character Ability States:   Invincible(cant take dmg, everything available), UnMoveable(when using a move), AbilityLockOut(cant use anyothers when using a move), UnCollidable(dashing)
-   */
-    
+    }
 
     public enum States
     {
-        /*MOVEMENT STATES*/ STANDING, WALKING, SPRINTING, JUMPING, CROUCHING, GROUNDED,
-        /*DISABLE STATES*/  FLINCH, HELPLESS,  LEDGEGRAB, DISABLED,
-        /*ABILITY STATES*/  INVINCIBLE, NOFLINCH, ABILITYLOCKOUT, NOCOLLISION, NOKNOCKBACK, HASITEM
+        /*MOVEMENT STATES*/     m_STANDING, m_WALKING, m_SPRINTING, m_CROUCHING, m_AERIAL, 
+        /*DISABLE STATES*/      d_FLINCH, d_HELPLESS,  d_LEDGE_GRAB, d_LAUNCHED, d_ABILITY_LOCK, d_GRABBED, d_BURIED, d_ASLEEP, d_FROZEN, d_VULNERABLE, d_STUNNED, d_THROWN, d_SLOW_MOTION, d_TRIPPED,
+        /*PROTECTIVE STATES*/   NO_FLINCH, NO_COLLISION, NO_KNOCKBACK, HAS_ITEM, NO_DAMAGE, NO_GRAB
     };
 
 }
