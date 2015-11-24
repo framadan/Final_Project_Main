@@ -6,7 +6,7 @@ public class Kirby : AI_Main
 {
     public int damage = 25;
     public bool jumping;
-
+    
     public void TakeDamage(int damage)
     {
         health -= damage;
@@ -23,6 +23,6 @@ public class Kirby : AI_Main
 			self.GetComponent<Kirby>().TakeDamage(damage);
             other.gameObject.GetComponent<AI_Main>().KnockBack(300);
 		}
-	}
+	} 
 }
 
