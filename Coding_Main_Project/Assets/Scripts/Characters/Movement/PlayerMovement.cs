@@ -7,6 +7,7 @@ public class PlayerMovement : MonoBehaviour
 	public float movementSpeed = 0.0f;
 	public float mouseSensitivity = 0.0f;
 	public float jumpVelocity = 0.0f;
+    public float fallSpeed = 0.0f;
 	
 	public float upDownRotationLimit = 0.0f;
 	float verticalVelocity = 0.0f;
@@ -28,6 +29,7 @@ public class PlayerMovement : MonoBehaviour
 	void Update ()
 	{
 		PlayerController();
+        //Debug.Log(verticalVelocity);
 	}
 
 	public void PlayerController()
@@ -38,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
 		else
 			sideSpeed *= movementSpeed/2;
 		
-		verticalVelocity = IsGrounded ?  0 : verticalVelocity + -25f * Time.deltaTime;
+		verticalVelocity = IsGrounded ?  0 : verticalVelocity + fallSpeed * Time.deltaTime;
 		if(IsGrounded && Input.GetButtonDown("Jump"))
 		{
 			verticalVelocity = jumpVelocity;
@@ -50,4 +52,14 @@ public class PlayerMovement : MonoBehaviour
 		
 		characterController.Move(speed * Time.deltaTime);
 	}
+
+    public void PlayerFallSpeedDecrease()
+    {
+        fallSpeed = 0.0f;
+    }
+
+    public void PlayerFallSpeedIncrease()
+    {
+        fallSpeed = -25.0f;
+    }
 }
