@@ -48,6 +48,8 @@ public class Timer
     public void ResetTimer( float targetTime )
     {
         currentTime = 0;
+        if(targetTime == 0)
+            targetTime = 180;
         this.targetTime = targetTime;
     }
 
@@ -98,9 +100,7 @@ public class Timer
             }
         }
 
-        if(timerCompleted != null)
             timerCompleted();
-        RemoveState(stateMachine, state);
     }
 
 

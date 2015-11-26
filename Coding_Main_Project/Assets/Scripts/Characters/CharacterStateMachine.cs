@@ -43,6 +43,8 @@ namespace StateMachine
                     timer.timerUpdate += onUpdateFunction;
                 if(onExitFunction != null)
                     timer.timerCompleted += onExitFunction;
+                timer.timerCompleted += () => stateMachine.RemoveState(state);
+
             }
         }
 
@@ -58,8 +60,7 @@ namespace StateMachine
                         return;
                     else
                     {
-                        if(activeStatesDict[state].timer != null)
-                            activeStatesDict[state].timer.ResetTimer(time);
+                        activeStatesDict[state].timer.ResetTimer(time);
                         return;
                     }
                 }

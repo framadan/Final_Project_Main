@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using StateMachine;
+using HelperFunctions;
 
 namespace Character
 {
@@ -12,8 +13,12 @@ namespace Character
         void Awake()
         {
             characterStateMachine = gameObject.GetComponent<CharacterStateMachine>();
+            Vector3 s = new Vector3();
+            if(s.Aprox(.1f)) { }
+            
         }
 
+        
         //might not need
         public CharacterStateMachine StateMachine
         {
