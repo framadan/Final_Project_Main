@@ -8,6 +8,7 @@ public class WallJump : MonoBehaviour {
 	float verticalVelocity;
 	Vector3 velocity;
 	Vector3 groundedVelocity;
+	Vector3 normal;
 	bool WallJumping;
 
 	void Update()
@@ -27,7 +28,7 @@ public class WallJump : MonoBehaviour {
 			myVector = groundedVelocity;
 			myVector*= Time.deltaTime;
 		}
-
+		myVector.y = verticalVelocity*Time.deltaTime;
 
 	}
 	void WallJumpCheck()
@@ -35,6 +36,7 @@ public class WallJump : MonoBehaviour {
 
 		if(!isGrounded && ControllerColliderHit.tag == "Wall" && Input.GetKeyDown ("Jump"))
 		{
+			groundVelocity = Vector3.Reflect(groundedVelocity, normal);
 			WallJumping()
 		}
 		else(!isGrounded && Input.GetKeyDown ("Jump"))
@@ -42,9 +44,9 @@ public class WallJump : MonoBehaviour {
 			Debug.Log("You're in the air!")
 		}
 	}
-	void OnControllerColliderHit(ConrollerColliderHit hit)
+	void OnControllerColliderHit(ControllerColliderHit hit)
 	{
-		Vector3 normal = hit.normal;
-		Vector3.Reflect()
+		normal = hit.normal;
+
 	}
 }
