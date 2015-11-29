@@ -1,9 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace HelperFunctions
+namespace ExtentionFunctions
 { 
-    public static class StaticHelperFunctions
+    public static class StaticExtentionFunctions
     {
         public static bool Aprox( this Vector3 currentVector, float closeTo) { return true; }
 	   
