@@ -1,0 +1,451 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA version="1.5.0" xmlns="http://www.collada.org/2008/03/COLLADASchema">
+	<asset>
+		<contributor>
+			<authoring_tool>BrawlBox</authoring_tool>
+		</contributor>
+		<created>2013-11-26T17:34:43Z</created>
+		<modified>2013-11-26T17:34:43Z</modified>
+		<unit meter="0.01" name="centimeter" />
+		<up_axis>Y_UP</up_axis>
+	</asset>
+	<library_images>
+		<image id="GrdOnettCloud-image" name="GrdOnettCloud">
+			<init_from>
+				<ref>GrdOnettCloud.png</ref>
+			</init_from>
+		</image>
+	</library_images>
+	<library_materials>
+		<material id="mat1355">
+			<instance_effect url="#mat1355-fx" />
+		</material>
+	</library_materials>
+	<library_effects>
+		<effect id="mat1355-fx" name="mat1355">
+			<profile_COMMON>
+				<newparam sid="GrdOnettCloud-surface">
+					<surface type="2D">
+						<init_from>
+							<ref>GrdOnettCloud-image</ref>
+						</init_from>
+					</surface>
+				</newparam>
+				<newparam sid="GrdOnettCloud-sampler">
+					<sampler2D>
+						<source>GrdOnettCloud-surface</source>
+						<instance_image url="#GrdOnettCloud-image" />
+						<wrap_s>WRAP</wrap_s>
+						<wrap_t>WRAP</wrap_t>
+						<minfilter>LINEAR_MIPMAP_LINEAR</minfilter>
+						<magfilter>LINEAR</magfilter>
+					</sampler2D>
+				</newparam>
+				<technique sid="COMMON">
+					<phong>
+						<diffuse>
+							<texture texture="GrdOnettCloud-sampler" texcoord="TEXCOORD0" />
+						</diffuse>
+					</phong>
+				</technique>
+			</profile_COMMON>
+		</effect>
+	</library_effects>
+	<library_geometries>
+		<geometry id="polygon0-ID" name="polygon0">
+			<mesh>
+				<source id="polygon0-ID_Positions">
+					<float_array id="polygon0-ID_PosArr" count="72">926.5002 237.3922 -879.2549 771.8318 237.3922 -879.2549 926.5002 304.3178 -879.2549 771.8318 304.3178 -879.2549 1361.771 230.0161 -988.2 1267.251 230.0161 -988.2 1361.771 276.864 -988.2 1267.251 276.864 -988.2 1706.601 234.1723 -1069.2 1577.711 234.1723 -1069.2 1706.601 274.3277 -1069.2 1577.711 274.3277 -1069.2 1728.542 205.8223 -893.835 1625.43 205.8223 -893.835 1728.542 245.9777 -893.835 1625.43 245.9777 -893.835 1122.52 220.4023 -1044.9 967.8518 220.4023 -1044.9 1122.52 260.5577 -1044.9 967.8518 260.5577 -1044.9 1923.03 190.326 -996.3 1802.732 190.326 -996.3 1923.03 237.174 -996.3 1802.732 237.174 -996.3</float_array>
+					<technique_common>
+						<accessor source="#polygon0-ID_PosArr" count="24" stride="3">
+							<param name="X" type="float" />
+							<param name="Y" type="float" />
+							<param name="Z" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="polygon0-ID_Normals">
+					<float_array id="polygon0-ID_NormArr" count="3">0 0 1</float_array>
+					<technique_common>
+						<accessor source="#polygon0-ID_NormArr" count="1" stride="3">
+							<param name="X" type="float" />
+							<param name="Y" type="float" />
+							<param name="Z" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="polygon0-ID_UVs0">
+					<float_array id="polygon0-ID_UVArr0" count="40">0.996745 0.502604 0.003472 0.503472 0.996094 0.996094 0.002604 0.996094 0.995536 0.503348 0.003906 0.503255 0.995536 0.996094 0.003255 0.996094 0.996094 0.503906 0.003255 0.503906 0.003418 0.995605 0.995443 0.00325501 0.00279 0.003347993 0.996094 0.496094 0.003255 0.496094 0.996094 0.502604 0.003906 0.995443 0.002604 0.003906012 0.996652 0.495536 0.003255 0.495443</float_array>
+					<technique_common>
+						<accessor source="#polygon0-ID_UVArr0" count="20" stride="2">
+							<param name="S" type="float" />
+							<param name="T" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<vertices id="polygon0-ID_Vertices">
+					<input semantic="POSITION" source="#polygon0-ID_Positions" />
+				</vertices>
+				<triangles material="mat1355-ID" count="12">
+					<input semantic="VERTEX" source="#polygon0-ID_Vertices" offset="0" />
+					<input semantic="NORMAL" source="#polygon0-ID_Normals" offset="1" />
+					<input semantic="TEXCOORD" source="#polygon0-ID_UVs0" set="0" offset="2" />
+					<p>2 0 2 1 0 1 0 0 0 3 0 3 1 0 1 2 0 2 6 0 6 5 0 5 4 0 4 7 0 7 5 0 5 6 0 6 10 0 2 9 0 9 8 0 8 11 0 10 9 0 9 10 0 2 14 0 13 13 0 12 12 0 11 15 0 14 13 0 12 14 0 13 18 0 2 17 0 5 16 0 15 19 0 16 17 0 5 18 0 2 22 0 18 21 0 17 20 0 11 23 0 19 21 0 17 22 0 18</p>
+				</triangles>
+			</mesh>
+		</geometry>
+		<geometry id="polygon6-ID" name="polygon6">
+			<mesh>
+				<source id="polygon6-ID_Positions">
+					<float_array id="polygon6-ID_PosArr" count="36">207.776 248.646 -934.335 87.47841 248.646 -934.335 207.776 295.494 -934.335 87.47841 295.494 -934.335 360.056 211.386 -1101.6 239.7584 211.386 -1101.6 360.056 258.234 -1101.6 239.7584 258.234 -1101.6 -107.134 205.716 -1012.5 -227.4316 205.716 -1012.5 -107.134 252.564 -1012.5 -227.4316 252.564 -1012.5</float_array>
+					<technique_common>
+						<accessor source="#polygon6-ID_PosArr" count="12" stride="3">
+							<param name="X" type="float" />
+							<param name="Y" type="float" />
+							<param name="Z" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="polygon6-ID_Normals">
+					<float_array id="polygon6-ID_NormArr" count="3">0 0 1</float_array>
+					<technique_common>
+						<accessor source="#polygon6-ID_NormArr" count="1" stride="3">
+							<param name="X" type="float" />
+							<param name="Y" type="float" />
+							<param name="Z" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="polygon6-ID_UVs0">
+					<float_array id="polygon6-ID_UVArr0" count="20">0.996094 0.003347993 0.003906 0.00325501 0.995605 0.496094 0.003906 0.496094 0.995443 0.003906012 0.003418 0.002929986 0.996094 0.496093 0.003348 0.495536 0.995443 0.00325501 0.003906 0.495605</float_array>
+					<technique_common>
+						<accessor source="#polygon6-ID_UVArr0" count="10" stride="2">
+							<param name="S" type="float" />
+							<param name="T" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<vertices id="polygon6-ID_Vertices">
+					<input semantic="POSITION" source="#polygon6-ID_Positions" />
+				</vertices>
+				<triangles material="mat1355-ID" count="6">
+					<input semantic="VERTEX" source="#polygon6-ID_Vertices" offset="0" />
+					<input semantic="NORMAL" source="#polygon6-ID_Normals" offset="1" />
+					<input semantic="TEXCOORD" source="#polygon6-ID_UVs0" set="0" offset="2" />
+					<p>2 0 2 1 0 1 0 0 0 3 0 3 1 0 1 2 0 2 6 0 6 5 0 5 4 0 4 7 0 7 5 0 5 6 0 6 10 0 6 9 0 1 8 0 8 11 0 9 9 0 1 10 0 6</p>
+				</triangles>
+			</mesh>
+		</geometry>
+		<geometry id="polygon9-ID" name="polygon9">
+			<mesh>
+				<source id="polygon9-ID_Positions">
+					<float_array id="polygon9-ID_PosArr" count="36">880.3795 205.716 -1012.5 760.0818 205.716 -1012.5 880.3795 252.564 -1012.5 760.0818 252.564 -1012.5 1199.115 248.646 -934.335 1078.817 248.646 -934.335 1199.115 295.494 -934.335 1078.817 295.494 -934.335 1351.437 211.386 -1101.6 1231.14 211.386 -1101.6 1351.437 258.234 -1101.6 1231.14 258.234 -1101.6</float_array>
+					<technique_common>
+						<accessor source="#polygon9-ID_PosArr" count="12" stride="3">
+							<param name="X" type="float" />
+							<param name="Y" type="float" />
+							<param name="Z" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="polygon9-ID_Normals">
+					<float_array id="polygon9-ID_NormArr" count="3">0 0 1</float_array>
+					<technique_common>
+						<accessor source="#polygon9-ID_NormArr" count="1" stride="3">
+							<param name="X" type="float" />
+							<param name="Y" type="float" />
+							<param name="Z" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="polygon9-ID_UVs0">
+					<float_array id="polygon9-ID_UVArr0" count="20">0.995443 0.00325501 0.003906 0.00325501 0.996094 0.496094 0.003906 0.495605 0.996094 0.003347993 0.995605 0.496094 0.003906 0.496094 0.995443 0.003906012 0.003418 0.002929986 0.003348 0.495536</float_array>
+					<technique_common>
+						<accessor source="#polygon9-ID_UVArr0" count="10" stride="2">
+							<param name="S" type="float" />
+							<param name="T" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<vertices id="polygon9-ID_Vertices">
+					<input semantic="POSITION" source="#polygon9-ID_Positions" />
+				</vertices>
+				<triangles material="mat1355-ID" count="6">
+					<input semantic="VERTEX" source="#polygon9-ID_Vertices" offset="0" />
+					<input semantic="NORMAL" source="#polygon9-ID_Normals" offset="1" />
+					<input semantic="TEXCOORD" source="#polygon9-ID_UVs0" set="0" offset="2" />
+					<p>2 0 2 1 0 1 0 0 0 3 0 3 1 0 1 2 0 2 6 0 5 5 0 1 4 0 4 7 0 6 5 0 1 6 0 5 10 0 2 9 0 8 8 0 7 11 0 9 9 0 8 10 0 2</p>
+				</triangles>
+			</mesh>
+		</geometry>
+		<geometry id="polygon12-ID" name="polygon12">
+			<mesh>
+				<source id="polygon12-ID_Positions">
+					<float_array id="polygon12-ID_PosArr" count="72">11.77077 230.0161 -988.2 -82.74879 230.0161 -988.2 11.77077 276.864 -988.2 -82.74879 276.864 -988.2 -227.4798 220.4023 -1044.9 -382.1482 220.4023 -1044.9 -227.4798 260.5577 -1044.9 -382.1482 260.5577 -1044.9 573.0298 190.326 -996.3 452.7321 190.326 -996.3 573.0298 237.174 -996.3 452.7321 237.174 -996.3 378.5421 205.8223 -893.835 275.4299 205.8223 -893.835 378.5421 245.9777 -893.835 275.4299 245.9777 -893.835 356.6011 234.1723 -1069.2 227.7108 234.1723 -1069.2 356.6011 274.3277 -1069.2 227.7108 274.3277 -1069.2 -423.4998 237.3922 -879.2549 -578.1682 237.3922 -879.2549 -423.4998 304.3178 -879.2549 -578.1682 304.3178 -879.2549</float_array>
+					<technique_common>
+						<accessor source="#polygon12-ID_PosArr" count="24" stride="3">
+							<param name="X" type="float" />
+							<param name="Y" type="float" />
+							<param name="Z" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="polygon12-ID_Normals">
+					<float_array id="polygon12-ID_NormArr" count="3">0 0 1</float_array>
+					<technique_common>
+						<accessor source="#polygon12-ID_NormArr" count="1" stride="3">
+							<param name="X" type="float" />
+							<param name="Y" type="float" />
+							<param name="Z" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="polygon12-ID_UVs0">
+					<float_array id="polygon12-ID_UVArr0" count="40">0.995536 0.503348 0.003906 0.503255 0.995536 0.996094 0.003255 0.996094 0.996094 0.502604 0.996094 0.996094 0.003906 0.995443 0.995443 0.00325501 0.002604 0.003906012 0.996652 0.495536 0.003255 0.495443 0.00279 0.003347993 0.996094 0.496094 0.003255 0.496094 0.996094 0.503906 0.003255 0.503906 0.003418 0.995605 0.996745 0.502604 0.003472 0.503472 0.002604 0.996094</float_array>
+					<technique_common>
+						<accessor source="#polygon12-ID_UVArr0" count="20" stride="2">
+							<param name="S" type="float" />
+							<param name="T" type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<vertices id="polygon12-ID_Vertices">
+					<input semantic="POSITION" source="#polygon12-ID_Positions" />
+				</vertices>
+				<triangles material="mat1355-ID" count="12">
+					<input semantic="VERTEX" source="#polygon12-ID_Vertices" offset="0" />
+					<input semantic="NORMAL" source="#polygon12-ID_Normals" offset="1" />
+					<input semantic="TEXCOORD" source="#polygon12-ID_UVs0" set="0" offset="2" />
+					<p>2 0 2 1 0 1 0 0 0 3 0 3 1 0 1 2 0 2 6 0 5 5 0 1 4 0 4 7 0 6 5 0 1 6 0 5 10 0 9 9 0 8 8 0 7 11 0 10 9 0 8 10 0 9 14 0 12 13 0 11 12 0 7 15 0 13 13 0 11 14 0 12 18 0 5 17 0 15 16 0 14 19 0 16 17 0 15 18 0 5 22 0 5 21 0 18 20 0 17 23 0 19 21 0 18 22 0 5</p>
+				</triangles>
+			</mesh>
+		</geometry>
+	</library_geometries>
+	<library_controllers>
+		<controller id="polygon0-ID_Controller">
+			<skin source="#polygon0-ID">
+				<bind_shape_matrix>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</bind_shape_matrix>
+				<source id="polygon0-ID_Joints">
+					<Name_array id="polygon0-ID_JointArr" count="5">StgDxOnettCloud-ID YCloudA-ID YCloudB-ID YCloudC-ID YCloudD-ID</Name_array>
+					<technique_common>
+						<accessor source="#polygon0-ID_JointArr" count="5">
+							<param name="JOINT" type="Name" />
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="polygon0-ID_Matrices">
+					<float_array id="polygon0-ID_MatArr" count="80">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 -1349.25 0 1 0 4.95 0 0 1 972 0 0 0 1 1 0 0 -222.4613 0 1 0 4.95 0 0 1 972 0 0 0 1 1 0 0 1.2003 0 1 0 4.95 0 0 1 972 0 0 0 1 1 0 0 0.75 0 1 0 4.95 0 0 1 972 0 0 0 1</float_array>
+					<technique_common>
+						<accessor source="#polygon0-ID_MatArr" count="5" stride="16">
+							<param type="float4x4" />
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="polygon0-ID_Weights">
+					<float_array id="polygon0-ID_WeightArr" count="1">1</float_array>
+					<technique_common>
+						<accessor source="#polygon0-ID_WeightArr" count="1">
+							<param type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<joints>
+					<input semantic="JOINT" source="#polygon0-ID_Joints" />
+					<input semantic="INV_BIND_MATRIX" source="#polygon0-ID_Matrices" />
+				</joints>
+				<vertex_weights count="24">
+					<input semantic="JOINT" offset="0" source="#polygon0-ID_Joints" />
+					<input semantic="WEIGHT" offset="1" source="#polygon0-ID_Weights" />
+					<vcount>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</vcount>
+					<v>1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0 1 0</v>
+				</vertex_weights>
+			</skin>
+		</controller>
+		<controller id="polygon6-ID_Controller">
+			<skin source="#polygon6-ID">
+				<bind_shape_matrix>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</bind_shape_matrix>
+				<source id="polygon6-ID_Joints">
+					<Name_array id="polygon6-ID_JointArr" count="5">StgDxOnettCloud-ID YCloudA-ID YCloudB-ID YCloudC-ID YCloudD-ID</Name_array>
+					<technique_common>
+						<accessor source="#polygon6-ID_JointArr" count="5">
+							<param name="JOINT" type="Name" />
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="polygon6-ID_Matrices">
+					<float_array id="polygon6-ID_MatArr" count="80">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 -1349.25 0 1 0 4.95 0 0 1 972 0 0 0 1 1 0 0 -222.4613 0 1 0 4.95 0 0 1 972 0 0 0 1 1 0 0 1.2003 0 1 0 4.95 0 0 1 972 0 0 0 1 1 0 0 0.75 0 1 0 4.95 0 0 1 972 0 0 0 1</float_array>
+					<technique_common>
+						<accessor source="#polygon6-ID_MatArr" count="5" stride="16">
+							<param type="float4x4" />
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="polygon6-ID_Weights">
+					<float_array id="polygon6-ID_WeightArr" count="1">1</float_array>
+					<technique_common>
+						<accessor source="#polygon6-ID_WeightArr" count="1">
+							<param type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<joints>
+					<input semantic="JOINT" source="#polygon6-ID_Joints" />
+					<input semantic="INV_BIND_MATRIX" source="#polygon6-ID_Matrices" />
+				</joints>
+				<vertex_weights count="12">
+					<input semantic="JOINT" offset="0" source="#polygon6-ID_Joints" />
+					<input semantic="WEIGHT" offset="1" source="#polygon6-ID_Weights" />
+					<vcount>1 1 1 1 1 1 1 1 1 1 1 1</vcount>
+					<v>2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0 2 0</v>
+				</vertex_weights>
+			</skin>
+		</controller>
+		<controller id="polygon9-ID_Controller">
+			<skin source="#polygon9-ID">
+				<bind_shape_matrix>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</bind_shape_matrix>
+				<source id="polygon9-ID_Joints">
+					<Name_array id="polygon9-ID_JointArr" count="5">StgDxOnettCloud-ID YCloudA-ID YCloudB-ID YCloudC-ID YCloudD-ID</Name_array>
+					<technique_common>
+						<accessor source="#polygon9-ID_JointArr" count="5">
+							<param name="JOINT" type="Name" />
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="polygon9-ID_Matrices">
+					<float_array id="polygon9-ID_MatArr" count="80">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 -1349.25 0 1 0 4.95 0 0 1 972 0 0 0 1 1 0 0 -222.4613 0 1 0 4.95 0 0 1 972 0 0 0 1 1 0 0 1.2003 0 1 0 4.95 0 0 1 972 0 0 0 1 1 0 0 0.75 0 1 0 4.95 0 0 1 972 0 0 0 1</float_array>
+					<technique_common>
+						<accessor source="#polygon9-ID_MatArr" count="5" stride="16">
+							<param type="float4x4" />
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="polygon9-ID_Weights">
+					<float_array id="polygon9-ID_WeightArr" count="1">1</float_array>
+					<technique_common>
+						<accessor source="#polygon9-ID_WeightArr" count="1">
+							<param type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<joints>
+					<input semantic="JOINT" source="#polygon9-ID_Joints" />
+					<input semantic="INV_BIND_MATRIX" source="#polygon9-ID_Matrices" />
+				</joints>
+				<vertex_weights count="12">
+					<input semantic="JOINT" offset="0" source="#polygon9-ID_Joints" />
+					<input semantic="WEIGHT" offset="1" source="#polygon9-ID_Weights" />
+					<vcount>1 1 1 1 1 1 1 1 1 1 1 1</vcount>
+					<v>3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0 3 0</v>
+				</vertex_weights>
+			</skin>
+		</controller>
+		<controller id="polygon12-ID_Controller">
+			<skin source="#polygon12-ID">
+				<bind_shape_matrix>1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1</bind_shape_matrix>
+				<source id="polygon12-ID_Joints">
+					<Name_array id="polygon12-ID_JointArr" count="5">StgDxOnettCloud-ID YCloudA-ID YCloudB-ID YCloudC-ID YCloudD-ID</Name_array>
+					<technique_common>
+						<accessor source="#polygon12-ID_JointArr" count="5">
+							<param name="JOINT" type="Name" />
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="polygon12-ID_Matrices">
+					<float_array id="polygon12-ID_MatArr" count="80">1 0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 -1349.25 0 1 0 4.95 0 0 1 972 0 0 0 1 1 0 0 -222.4613 0 1 0 4.95 0 0 1 972 0 0 0 1 1 0 0 1.2003 0 1 0 4.95 0 0 1 972 0 0 0 1 1 0 0 0.75 0 1 0 4.95 0 0 1 972 0 0 0 1</float_array>
+					<technique_common>
+						<accessor source="#polygon12-ID_MatArr" count="5" stride="16">
+							<param type="float4x4" />
+						</accessor>
+					</technique_common>
+				</source>
+				<source id="polygon12-ID_Weights">
+					<float_array id="polygon12-ID_WeightArr" count="1">1</float_array>
+					<technique_common>
+						<accessor source="#polygon12-ID_WeightArr" count="1">
+							<param type="float" />
+						</accessor>
+					</technique_common>
+				</source>
+				<joints>
+					<input semantic="JOINT" source="#polygon12-ID_Joints" />
+					<input semantic="INV_BIND_MATRIX" source="#polygon12-ID_Matrices" />
+				</joints>
+				<vertex_weights count="24">
+					<input semantic="JOINT" offset="0" source="#polygon12-ID_Joints" />
+					<input semantic="WEIGHT" offset="1" source="#polygon12-ID_Weights" />
+					<vcount>1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1</vcount>
+					<v>4 0 4 0 4 0 4 0 4 0 4 0 4 0 4 0 4 0 4 0 4 0 4 0 4 0 4 0 4 0 4 0 4 0 4 0 4 0 4 0 4 0 4 0 4 0 4 0</v>
+				</vertex_weights>
+			</skin>
+		</controller>
+	</library_controllers>
+	<library_visual_scenes>
+		<visual_scene id="RootNodeID" name="RootNode">
+			<node id="StgDxOnettCloud-ID" name="StgDxOnettCloud" sid="StgDxOnettCloud-ID" type="JOINT">
+				<node id="YCloudA-ID" name="YCloudA" sid="YCloudA-ID" type="JOINT">
+					<translate>1349.25 -4.95 -972</translate>
+				</node>
+				<node id="YCloudB-ID" name="YCloudB" sid="YCloudB-ID" type="JOINT">
+					<translate>222.4613 -4.95 -972</translate>
+				</node>
+				<node id="YCloudC-ID" name="YCloudC" sid="YCloudC-ID" type="JOINT">
+					<translate>-1.2003 -4.95 -972</translate>
+				</node>
+				<node id="YCloudD-ID" name="YCloudD" sid="YCloudD-ID" type="JOINT">
+					<translate>-0.75 -4.95 -972</translate>
+				</node>
+			</node>
+			<node id="polygon0-ID" name="polygon0" type="NODE">
+				<instance_controller url="#polygon0-ID_Controller">
+					<skeleton>#StgDxOnettCloud</skeleton>
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="mat1355-ID" target="#mat1355">
+								<bind_vertex_input semantic="TEXCOORD0" input_semantic="TEXCOORD" input_set="0" />
+							</instance_material>
+						</technique_common>
+					</bind_material>
+				</instance_controller>
+			</node>
+			<node id="polygon6-ID" name="polygon6" type="NODE">
+				<instance_controller url="#polygon6-ID_Controller">
+					<skeleton>#StgDxOnettCloud</skeleton>
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="mat1355-ID" target="#mat1355">
+								<bind_vertex_input semantic="TEXCOORD0" input_semantic="TEXCOORD" input_set="0" />
+							</instance_material>
+						</technique_common>
+					</bind_material>
+				</instance_controller>
+			</node>
+			<node id="polygon9-ID" name="polygon9" type="NODE">
+				<instance_controller url="#polygon9-ID_Controller">
+					<skeleton>#StgDxOnettCloud</skeleton>
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="mat1355-ID" target="#mat1355">
+								<bind_vertex_input semantic="TEXCOORD0" input_semantic="TEXCOORD" input_set="0" />
+							</instance_material>
+						</technique_common>
+					</bind_material>
+				</instance_controller>
+			</node>
+			<node id="polygon12-ID" name="polygon12" type="NODE">
+				<instance_controller url="#polygon12-ID_Controller">
+					<skeleton>#StgDxOnettCloud</skeleton>
+					<bind_material>
+						<technique_common>
+							<instance_material symbol="mat1355-ID" target="#mat1355">
+								<bind_vertex_input semantic="TEXCOORD0" input_semantic="TEXCOORD" input_set="0" />
+							</instance_material>
+						</technique_common>
+					</bind_material>
+				</instance_controller>
+			</node>
+		</visual_scene>
+	</library_visual_scenes>
+	<scene>
+		<instance_visual_scene url="#RootNodeID" />
+	</scene>
+</COLLADA>
