@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Luigi : AI_Main
+public class Luigi : AI_Main_02
 {
     public int damage = 25;
     public bool jumping;
@@ -13,15 +13,15 @@ public class Luigi : AI_Main
         if (health <= 0)
         {
             print("Dead");
-            self.GetComponent<AI_Main>().KnockBack(600);
+            self.GetComponent<AI_Main_02>().KnockBack(600);
         }
     }
     public void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "Target")
+        if (other.gameObject.tag == "Player")
         {
             self.GetComponent<Luigi>().TakeDamage(damage);
-            other.gameObject.GetComponent<AI_Main>().KnockBack(300);
+            self.gameObject.GetComponent<AI_Main_02>().KnockBack(200);
         }
     }
 }
