@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using StateMachine;
-using HelperFunctions;
+using ExtentionFunctions;
 
 namespace Character
 {
