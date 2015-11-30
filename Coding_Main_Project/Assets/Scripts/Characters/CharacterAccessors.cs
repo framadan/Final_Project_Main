@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using StateMachine;
-using HelperFunctions;
+//using HelperFunctions;
 
 namespace Character
 {
@@ -14,7 +14,7 @@ namespace Character
         {
             characterStateMachine = gameObject.GetComponent<CharacterStateMachine>();
             Vector3 s = new Vector3();
-            if(s.Aprox(.1f)) { }
+            //if(s.Aprox(.1f)) { }
             
         }
 
