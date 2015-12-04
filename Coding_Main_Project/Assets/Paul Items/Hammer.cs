@@ -11,7 +11,6 @@ public class Hammer : ItemBase
 	{
 		damage = 125.0f;
 		baseKnockBack = 90.0f;
-
-
+		//Damage must be continues while the effect lasts, make timer 8 seconds.
 	}
 }
