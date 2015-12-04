@@ -6,7 +6,9 @@ public class Kirby : AI_Main_02
 {
     public int damage = 25;
     public bool jumping;
-    
+    public float counter = 0;
+    public GameObject spawner;
+
     public void TakeDamage(int damage)
     {
         health -= damage;
@@ -23,6 +25,18 @@ public class Kirby : AI_Main_02
             self.GetComponent<Kirby>().TakeDamage(damage);
             self.gameObject.GetComponent<AI_Main_02>().KnockBack(200);
         }
-    } 
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Boundary")
+        {
+            self.gameObject.transform.position = spawner.transform.position;
+            counter++;
+        }
+        if (counter >= 4)
+        {
+            Destroy(self);
+        }
+    }
 }
 

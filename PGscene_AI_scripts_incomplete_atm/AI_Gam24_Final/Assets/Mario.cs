@@ -6,9 +6,11 @@ public class Mario : AI_Main_02
 {
     public int damage = 25;
     public bool jumping;
-    
+    public float counter = 0;
+    public GameObject spawner;
 
-	public void TakeDamage(int damage)
+
+    public void TakeDamage(int damage)
 	{
 		health -= damage;
 		if (health <= 0)
@@ -25,7 +27,19 @@ public class Mario : AI_Main_02
             self.gameObject.GetComponent<AI_Main_02>().KnockBack(200);
         }
 	}
-   
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject.tag == "Boundary")
+        {
+            self.gameObject.transform.position = spawner.transform.position;
+            counter++;
+        }
+        if (counter >= 4)
+        {
+            Destroy(self);
+        }
+    }
     /*void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "CanJump")

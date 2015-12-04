@@ -17,6 +17,8 @@ public class PlayerMovement_pg : MonoBehaviour
     public Rigidbody rigidbody;
     public float fallSpeed;
     public Transform rotating;
+    public float counter = 0;
+    public GameObject spawner;
     // Use this for initialization
     void Start ()
     {
@@ -119,6 +121,15 @@ public class PlayerMovement_pg : MonoBehaviour
         if(other.gameObject.tag == "Side")
         {
             transform.Translate(0, 2, 0);
+        }
+        if (other.gameObject.tag == "Boundary")
+        {
+            player.gameObject.transform.position = spawner.transform.position;
+            counter++;
+        }
+        if (counter >= 4)
+        {
+            Destroy(player);
         }
     }
     public void KnockBack(float value)
