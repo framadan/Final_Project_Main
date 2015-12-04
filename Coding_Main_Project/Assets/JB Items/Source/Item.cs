@@ -18,7 +18,7 @@ public class Item : MonoBehaviour
 		{
 			if (gameObject.GetComponent<MetalBox>() != null)
 			{
-				gameObject.GetComponent<MetalBox>().DoTheDo(wielder.GetComponent<ItemUser>());
+//				gameObject.GetComponent<MetalBox>().DoTheDo(wielder.GetComponent<ItemUser>());
 			}
 
 			if (gameObject.GetComponent<StarMan>() != null)

@@ -13,19 +13,19 @@ public class MetalBox : ItemBase
 	
 	public AudioClip metalStep = null;
 
-	public override void Onhit () //if Metal Box is hit by player
+	public override void OnHit () //if Metal Box is hit by player
 	{
 		isMetal = true;
 	}
 
-	IEnumerator WhileMetal()
-	{
-		while (isMetal) 
-		{
-		//pass values
-		//yield return new WaitForSeconds (duration);
-		}
-
-		//I believe this is the basic idea we'll need
-	}
+//	IEnumerator WhileMetal()
+//	{
+//		while (isMetal) 
+//		{
+//		pass values
+//		yield return new WaitForSeconds (duration);
+//		}
+//
+//		//I believe this is the basic idea we'll need
+//	}
 }
