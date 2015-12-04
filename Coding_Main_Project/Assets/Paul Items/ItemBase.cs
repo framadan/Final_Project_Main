@@ -3,12 +3,12 @@ using System.Collections;
 
 public class ItemBase : MonoBehaviour 
 {
-	virtual void Start()
+	public virtual void Start()
 	{
 
 	}
 
-	virtual void Update()
+	public virtual void Update()
 	{
 
 	}

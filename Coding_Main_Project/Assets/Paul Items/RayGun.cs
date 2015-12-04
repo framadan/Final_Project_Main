@@ -10,13 +10,13 @@ public class RayGun : ItemBase
 	private float time = 0.0f;
 
 	// Use this for initialization
-	override void Start () 
+	public override void Start () 
 	{
 		time = coolDown;
 	}
 	
 	// Update is called once per frame
-	override void Update () 
+	public override void Update () 
 	{
 		if (time < coolDown)
 			time += Time.deltaTime;
