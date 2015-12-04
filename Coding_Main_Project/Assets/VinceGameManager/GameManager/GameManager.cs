@@ -2,24 +2,38 @@
 using System.Collections;
 
 // consistant bracketing.
-public class GameManager : MonoBehaviour {
-    //you have a instance variable, but you never use it to get access to your GameManager. 
-    //This is the correct approach and when you need access in other scripts, do a public GameManager gameManager = GameManager.instance; rather then a Find and Get Component.
+public class GameManager : MonoBehaviour 
+{
 	public static GameManager instance = null;
-    //Should be selectedCharacters? seems like players != the character they selected.
-	public GameObject[] players = null;
-    //selectedStage seems more appropraite
-	public GameObject selectedScene = null;
+	bool battleActive = false;
+	public GameObject[] spawnPoints = null;
+    
+
+	//active players
+	public GameObject[] activePlayers = null;
+	int maxPlayers = 4;
+
+    //character prefabs
+	public GameObject kirbyPref = null;
+
+	//stage top be loaded;
+	public GameObject selectedStage = null;
 
 	void Awake()
 	{
-		instanceCheck ();
-        //same as gameObject... transform is redundant here. Under the hood transform is gameObject.transform.. so your doing gameObject.transform.gameObject.
-		DontDestroyOnLoad(transform.gameObject);
-	}// consistant spacing.
+		instanceCheck ();       
+		DontDestroyOnLoad(gameObject);
+		if (battleActive == true) 
+		{
+			SpawnSet ();
+		}
+	}
 	void Start () 
 	{
-	
+	 if (battleActive == true) 
+		{
+			//instPlayers ();
+		}
 	}
 	
 
@@ -35,4 +49,58 @@ public class GameManager : MonoBehaviour {
 		 else if (instance != this) 
 			Destroy (gameObject);
 	}
+	//character selectionScreem-------------------------------------
+	public void SelectKirby()
+	{
+		activePlayers [0] = kirbyPref;
+	}
+	public void SelectChar2()
+	{
+		activePlayers [0] = kirbyPref;
+	}
+	public void SelectChar3()
+	{
+		activePlayers [0] = kirbyPref;
+	}
+	public void SelectChar4()
+	{
+		activePlayers [0] = kirbyPref;
+	}
+	public void SelectChar5()
+	{
+		activePlayers [0] = kirbyPref;
+	}
+	public void SelectChar6()
+	{
+		activePlayers [0] = kirbyPref;
+	}
+	public void SelectChar7()
+	{
+		activePlayers [0] = kirbyPref;
+	}
+	public void StartGame()
+	{
+		Application.LoadLevel (0);
+		print ("test");
+		battleActive = true;
+	}//end character selection screen------------------------------
+	//battleScene--------------------------------------------------
+	void SpawnSet()
+	{
+		spawnPoints[0]= GameObject.Find ("P1Spawner");
+		spawnPoints[1] = GameObject.Find ("P2Spawner");
+		spawnPoints[2] = GameObject.Find ("P3Spawner");
+		spawnPoints[3] = GameObject.Find ("P4Spawner");
+	}
+	void instPlayers()
+	{
+		for(int i = 0; i < maxPlayers; i++)
+		{
+
+			Instantiate (activePlayers[i],spawnPoints[i].transform.position,transform.rotation);
+		}
+		
+	}
+	//end battle Scene-----------------------------------------------
 }
+
