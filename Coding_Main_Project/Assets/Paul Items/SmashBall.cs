@@ -1,15 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class SmashBall : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
+public class SmashBall : ItemBase
+{
+	public float health = 40.0f;
+	public bool canSmashMove = false;
 	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
+	void OnCollisionOther ()
+	{
+		health = health - 10;
+			if(health == 0)
+			{
+				canSmashMove = true;
+			}
 	}
 }

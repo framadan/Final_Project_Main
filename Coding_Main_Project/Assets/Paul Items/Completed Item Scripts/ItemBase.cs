@@ -12,7 +12,11 @@ public class ItemBase : MonoBehaviour
 	{
 
 	}
+	public virtual void SmashUse()
+	{
 
+
+	}
 	public virtual void Consume ()
 	{
 		print ("Consume base class");

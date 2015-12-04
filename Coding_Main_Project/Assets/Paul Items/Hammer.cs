@@ -7,7 +7,7 @@ public class Hammer : ItemBase
 	public float baseKnockBack = 90.0f;
 
 
-	override void Use()
+	public override void Use()
 	{
 		damage = 125.0f;
 		baseKnockBack = 90.0f;
