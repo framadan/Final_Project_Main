@@ -22,4 +22,14 @@ public class ItemBase : MonoBehaviour
 	{
 		print ("Use base class");
 	}
+
+	public virtual void StopUse()
+	{
+		print ("StopUse base class");
+	}
+
+	public virtual void SmashUse ()
+	{
+		print ("SmashUse base class");
+	}
 }
