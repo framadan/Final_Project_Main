@@ -3,10 +3,11 @@
 	None,
 	Bobomb,
 	BeamSword,
+	FireFlower,
 	HomeRunBat,
 	Hammer,
+	KirbyStar,
 	MaxTomato,
-	RayGun,
 	MetalBox,
-	KirbyStar
+	RayGun
 }

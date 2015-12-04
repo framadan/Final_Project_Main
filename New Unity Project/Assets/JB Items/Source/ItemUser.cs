@@ -45,10 +45,12 @@ public class ItemUser : MonoBehaviour
 		}
 	}
 
-	public void GetBuffed (Material material, AudioClip audioClip, float duration, float damageMod, float gravityMod = 1f)
+	public void GetBuffed (Material material = null, AudioClip audioClip = null, float duration = 0, float damageMod = 0, float gravityMod = 1f)
 	{
-		AudioSource.PlayClipAtPoint (audioClip, gameObject.transform.position);
-		gameObject.GetComponent<MeshRenderer> ().material = material;
+		if(audioClip != null)
+			AudioSource.PlayClipAtPoint (audioClip, gameObject.transform.position);
+		if(material != null)
+			gameObject.GetComponent<MeshRenderer> ().material = material;
 	}
 
 	public IEnumerator Duration (float duration)
