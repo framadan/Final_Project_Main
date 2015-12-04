@@ -3,9 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 
 
-public class PlayerMovement_pg : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
-    
     public float move;
     public float jump;
     public float delay = 2.0f;
@@ -113,7 +112,7 @@ public class PlayerMovement_pg : MonoBehaviour
         }
         if(other.gameObject.tag == "Player")
         {
-            player.gameObject.GetComponent<PlayerMovement_pg>().KnockBack(600);
+            player.gameObject.GetComponent<PlayerMovement>().KnockBack(600);
         }
     }
     void OnTriggerEnter(Collider other)

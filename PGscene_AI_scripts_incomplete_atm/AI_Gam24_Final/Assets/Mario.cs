@@ -19,14 +19,14 @@ public class Mario : AI_Main_02
 			self.GetComponent<AI_Main_02>().KnockBack(600);
 		}
 	}
-	public void OnCollisionEnter(Collision other)
-	{
-		if(other.gameObject.tag == "Player")
-		{
-            self.GetComponent<Mario>().TakeDamage(damage);
-            self.gameObject.GetComponent<AI_Main_02>().KnockBack(200);
-        }
-	}
+//	public void OnCollisionEnter(Collision other)
+//	{
+//		if(other.gameObject.tag == "Player")
+//		{
+//            self.GetComponent<Mario>().TakeDamage(damage);
+//            self.gameObject.GetComponent<AI_Main_02>().KnockBack(200);
+//        }
+//	}
 
     void OnTriggerEnter(Collider other)
     {
