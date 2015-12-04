@@ -32,4 +32,9 @@ public class ItemBase : MonoBehaviour
 	{
 		print ("SmashUse base class");
 	}
+
+	public virtual void OnHit ()
+	{
+		print ("OnHit base class");
+	}
 }
