@@ -3,14 +3,23 @@ using System.Collections;
 
 public class ItemBase : MonoBehaviour 
 {
+	virtual void Start()
+	{
+
+	}
+
+	virtual void Update()
+	{
+
+	}
 
 	public virtual void Consume ()
 	{
-		print ("base class");
+		print ("Consume base class");
 	}
 	
-	public void Use ()
+	public virtual void Use ()
 	{
-		
+		print ("Use base class");
 	}
 }

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class RayGun : MonoBehaviour 
+public class RayGun : ItemBase 
 {
 	public GameObject projectile = null;
 	public float coolDown = 0.0f;
@@ -10,13 +10,13 @@ public class RayGun : MonoBehaviour
 	private float time = 0.0f;
 
 	// Use this for initialization
-	void Start () 
+	override void Start () 
 	{
 		time = coolDown;
 	}
 	
 	// Update is called once per frame
-	void Update () 
+	override void Update () 
 	{
 		if (time < coolDown)
 			time += Time.deltaTime;
@@ -24,7 +24,7 @@ public class RayGun : MonoBehaviour
 			canFire = true;
 	}
 
-	public void FireShot(ItemUser weilder)
+	public override void Use()
 	{
 		if(canFire == true)
 		{
