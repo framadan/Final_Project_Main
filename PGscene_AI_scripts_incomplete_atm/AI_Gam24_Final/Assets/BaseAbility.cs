@@ -1,46 +1,90 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+
 public class BaseAbility : MonoBehaviour 
 {
-	public float p;
-	public float d;
-	public float w;
-	public float s;
-	public float b;
-	public float r;
-	public float formula;
-
+    public float health = 10;
+	public float damage;
+	public float weight;
+	public float scaledKB;
+	public float baseKB;
+	public float factors;
+	float formula;
+    public GameObject equalTarget;
+    public Mario mario;
+    
 	// Use this for initialization
 	void Start () 
 	{
-		formula = (((((p / 10f + p * d / 20f) * w * 1.4f) + 18f) * s) + b) * r;
+        
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
-		
-	}
-	public virtual void KnockBack(float value)
+        //formula = (((((health / 10f + health * damage / 20f) * weight * 1.4f) + 18f) * scaledKB) + baseKB) * factors;
+        //print(formula);
+    }
+	
+    public void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            equalTarget = other.gameObject;
+            if (equalTarget == other.gameObject)
+            {
+                print(equalTarget);
+                equalTarget.GetComponent<BaseAbility>().KnockBack(formula);
+                equalTarget.GetComponent<BaseAbility>().TakeDamage(damage);
+            }
+        }
+    }
+    
+    public virtual void TakeDamage(float damage)
 	{
-		float num = (((((p / 10f + p * value / 20f) * w * 1.4f) + 18f) * s) + b) * r;
-		Vector3 direction = transform.InverseTransformDirection (0, 1, 1);
-		this.gameObject.GetComponent<Rigidbody> ().AddForce (direction * num);
+        KnockBack(damage);
+        health += damage += baseKB;
+        if (health >= 50f)
+        {
+            damage += 5f;
+            baseKB += 5f;
+        }
+        else if (health >= 100f)
+        {
+            damage += 10f;
+            baseKB += 10f;
+        }
+        else if (health >= 150f)
+        {
+            damage += 20f;
+            baseKB += 20f;
+        }
+        else if (health >= 200f)
+        {
+            damage += 30f;
+            baseKB += 30f;
+        }
+        else if (health >= 250f)
+        {
+            damage += 40f;
+            baseKB += 40f;
+        }
+        else if (health >= 300f)
+        {
+            damage += 50f;
+            baseKB += 50f;
+        }
 	}
-	public virtual void TakeDamage(float damage)
-	{
-		p = 1f;
-		p += d;
-		if (p >= 50f) 
-		{
-
-		}
-	}
-	public virtual void Weight(float weight)
-	{
-
-	}
+    public virtual void KnockBack(float value)
+    {
+        float num = (((((health / 10f + health * damage / 20f) * weight * 1.4f) + 18f) * scaledKB) + baseKB) * factors;
+        //float num = (((((health / 10f + health * value / 20f) * weight * 1.4f) + 18f) * scaledKB) + baseKB) * factors;
+        //formula = (((((health / 10f + health * damage / 20f) * weight * 1.4f) + 18f) * scaledKB) + baseKB) * factors;
+        print(num);
+        Vector3 direction = transform.InverseTransformDirection(0, 1, -1);
+        equalTarget.gameObject.GetComponent<Rigidbody>().AddForce(direction * num);
+    }
 }
 
 //Links

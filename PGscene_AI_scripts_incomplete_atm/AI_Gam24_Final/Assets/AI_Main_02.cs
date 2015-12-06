@@ -8,11 +8,9 @@ public class AI_Main_02 : MonoBehaviour
     public float Hop = 20f;
 	public float jump = 600f;
 	public Collider[] possibleTargets;
-    public Collider[] possibleItems;
 	public float speed;
 	public float aggro = 10f;
 	public GameObject currentTarget;
-    public GameObject currentItem;
 	public bool showDebug = false;
 	public Color aggroRadiusColor;
 	public int health;
@@ -35,10 +33,7 @@ public class AI_Main_02 : MonoBehaviour
         JumpTimer();
         Targeting();
 	}
-    void LateUpdate()
-    {
-        ItemSearch();
-    }
+    
 	void DrawGismos()
 	{
 		if (showDebug != true)
@@ -71,38 +66,11 @@ public class AI_Main_02 : MonoBehaviour
             }
             if (currentTarget)
             {
-                //Vector3 direction = (currentTarget.transform.position - transform.position).normalized;
                 transform.LookAt(new Vector3(currentTarget.transform.position.x, transform.position.y, currentTarget.transform.position.z));
                 this.rigidbody.AddRelativeForce(Vector3.forward * speed);
-                
             }
         }
 	}
-    void ItemSearch()
-    {
-        possibleItems = Physics.OverlapSphere(transform.position, aggro*2);
-        foreach (Collider possibleItem in possibleItems)
-        {
-            if(possibleItem.tag != "Item")
-            {
-                continue;
-            }
-            if(currentItem == null)
-            {
-                currentItem = possibleItem.gameObject;
-            }
-            if (currentItem)
-            {
-                transform.LookAt(new Vector3(currentItem.transform.position.x, transform.position.y, currentItem.transform.position.z));
-                this.rigidbody.AddRelativeForce(Vector3.forward * speed);
-            }
-        }
-    }
-    public void KnockBack(float value)
-    {
-        Vector3 direction = transform.InverseTransformDirection(0, 1, 1);
-        self.GetComponent<Rigidbody>().AddForce(direction * value);
-    }
     public void JumpTimer()
     {
         if(Time.time >= delayTime)
