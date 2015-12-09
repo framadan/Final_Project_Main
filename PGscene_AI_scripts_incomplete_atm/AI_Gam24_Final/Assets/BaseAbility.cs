@@ -12,8 +12,7 @@ public class BaseAbility : MonoBehaviour
 	public float factors;
 	float formula;
     public GameObject equalTarget;
-    public Mario mario;
-    
+    public bool hasHit;
 	// Use this for initialization
 	void Start () 
 	{
@@ -34,7 +33,6 @@ public class BaseAbility : MonoBehaviour
             equalTarget = other.gameObject;
             if (equalTarget == other.gameObject)
             {
-                print(equalTarget);
                 equalTarget.GetComponent<BaseAbility>().KnockBack(formula);
                 equalTarget.GetComponent<BaseAbility>().TakeDamage(damage);
             }
@@ -44,36 +42,36 @@ public class BaseAbility : MonoBehaviour
     public virtual void TakeDamage(float damage)
 	{
         KnockBack(damage);
-        health += damage += baseKB;
+        health += damage; //+= baseKB;
         if (health >= 50f)
         {
-            damage += 5f;
-            baseKB += 5f;
+            //damage += 2f;
+            baseKB += 2f;
         }
         else if (health >= 100f)
         {
-            damage += 10f;
-            baseKB += 10f;
+            //damage += 2f;
+            baseKB += 2f;
         }
         else if (health >= 150f)
         {
-            damage += 20f;
-            baseKB += 20f;
+            //damage += 2f;
+            baseKB += 2f;
         }
         else if (health >= 200f)
         {
-            damage += 30f;
-            baseKB += 30f;
+            //damage += 2f;
+            baseKB += 2f;
         }
         else if (health >= 250f)
         {
-            damage += 40f;
-            baseKB += 40f;
+            //damage += 2f;
+            baseKB += 2f;
         }
         else if (health >= 300f)
         {
-            damage += 50f;
-            baseKB += 50f;
+            //damage += 2f;
+            baseKB += 2f;
         }
 	}
     public virtual void KnockBack(float value)

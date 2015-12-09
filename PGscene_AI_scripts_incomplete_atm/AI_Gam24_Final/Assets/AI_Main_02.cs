@@ -13,9 +13,7 @@ public class AI_Main_02 : MonoBehaviour
 	public GameObject currentTarget;
 	public bool showDebug = false;
 	public Color aggroRadiusColor;
-	public int health;
 	public GameObject self;
-	public float knockBack;
 	public float delayTime;
 	public float delay = 2f;
 	//public Transform target;
@@ -30,7 +28,7 @@ public class AI_Main_02 : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-        JumpTimer();
+        //JumpTimer();
         Targeting();
 	}
     
@@ -71,7 +69,7 @@ public class AI_Main_02 : MonoBehaviour
             }
         }
 	}
-    public void JumpTimer()
+    /*public void JumpTimer()
     {
         if(Time.time >= delayTime)
         {
@@ -83,5 +81,5 @@ public class AI_Main_02 : MonoBehaviour
     IEnumerator Timer (float timer)
     {
         yield return new WaitForSeconds(timer);
-    }
+    }*/
 }

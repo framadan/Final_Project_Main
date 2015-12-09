@@ -110,10 +110,6 @@ public class PlayerMovement : MonoBehaviour
             print("Touching");
             canJump = true;
         }
-        if(other.gameObject.tag == "Player")
-        {
-            player.gameObject.GetComponent<PlayerMovement>().KnockBack(600);
-        }
     }
     void OnTriggerEnter(Collider other)
     {
@@ -123,6 +119,9 @@ public class PlayerMovement : MonoBehaviour
         }
         if (other.gameObject.tag == "Boundary")
         {
+            rigidbody.velocity = Vector3.zero;
+            this.gameObject.GetComponent<BaseAbility>().health = 10;
+            this.gameObject.GetComponent<BaseAbility>().baseKB = 10;
             player.gameObject.transform.position = spawner.transform.position;
             counter++;
         }
