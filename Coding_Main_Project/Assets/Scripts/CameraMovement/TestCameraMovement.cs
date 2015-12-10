@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 public class TestCameraMovement : MonoBehaviour
 {
+    public List<Transform> playersTransform = new List<Transform>();
 
     public List<float> xPosition = new List<float>();
     public List<float> yPosition = new List<float> ();
@@ -22,15 +23,21 @@ public class TestCameraMovement : MonoBehaviour
 	void Start ()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
-	}
+
+        foreach (GameObject player in players)
+        {
+            targets.Add(player);
+            playersTransform.Add(player.transform);
+        }
+    }
 	
 	// Update is called once per frame
 	void Update ()
     {
-        foreach (GameObject player in players)
-        {
-            xPosition.Add(player.transform.position.x);
-            yPosition.Add(player.transform.position.y);
-        }
-	}
+        //foreach (GameObject target in targets)
+        //{
+        //    xPosition.Add(target.transform.position.x);
+        //    yPosition.Add(target.transform.position.y);
+        //}
+    }
 }
