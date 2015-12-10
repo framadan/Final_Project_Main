@@ -79,7 +79,7 @@ public class BaseAbility : MonoBehaviour
         float num = (((((health / 10f + health * damage / 20f) * weight * 1.4f) + 18f) * scaledKB) + baseKB) * factors;
         //float num = (((((health / 10f + health * value / 20f) * weight * 1.4f) + 18f) * scaledKB) + baseKB) * factors;
         //formula = (((((health / 10f + health * damage / 20f) * weight * 1.4f) + 18f) * scaledKB) + baseKB) * factors;
-        print(num);
+        //print(num);
         Vector3 direction = transform.InverseTransformDirection(0, 1, -1);
         equalTarget.gameObject.GetComponent<Rigidbody>().AddForce(direction * num);
     }

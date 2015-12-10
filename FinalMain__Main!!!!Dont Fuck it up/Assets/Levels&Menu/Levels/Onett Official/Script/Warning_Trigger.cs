@@ -22,7 +22,7 @@ public class Warning_Trigger : MonoBehaviour
 	{
 		if (other.gameObject.tag == "Car")
 		{
-			print ("Warning"); 
+			//print ("Warning"); 
 			Warning.SetActive (true);
 		}
 	}
@@ -31,7 +31,7 @@ public class Warning_Trigger : MonoBehaviour
 	{
 		if (other.gameObject.tag == "Car")
 		{
-			print ("Warning"); 
+			//print ("Warning"); 
 			Warning.SetActive (false);
 		}
 	}

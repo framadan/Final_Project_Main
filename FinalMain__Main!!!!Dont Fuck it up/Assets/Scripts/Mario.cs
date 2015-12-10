@@ -6,7 +6,16 @@ public class Mario : AI_Main_02
 {
     public float counter = 0;
     public GameObject spawner;
+    public bool hit1 = true;
+    public bool hit2;
+    public bool hit3;
 
+    
+    
+    public void LateUpdate()
+    {
+        AnimAttack();
+    }
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Boundary")
@@ -24,6 +33,33 @@ public class Mario : AI_Main_02
         if (other.gameObject.tag == "Side")
         {
             transform.Translate(0, 2, 0);
+        }
+    }
+
+    public virtual void AnimAttack()
+    {
+        if(Vector3.Distance(gameObject.transform.position, currentTarget.transform.position) <= 50)
+        {
+            if(hit1 == true)
+            {
+                print("1");
+                gameObject.GetComponent<Animation>().Play("mario_backflip");
+                hit1 = false;
+                hit2 = true;
+                print("2");
+            }
+            else if (hit2 == true)
+            {
+                gameObject.GetComponent<Animation>().PlayQueued("mario_punch_up");
+                hit2 = false;
+                hit3 = true;
+            }
+            else if(hit3 == true)
+            {
+                gameObject.GetComponent<Animation>().PlayQueued("mario_charge_punch");
+                hit3 = false;
+                hit1 = true;
+            }
         }
     }
 }

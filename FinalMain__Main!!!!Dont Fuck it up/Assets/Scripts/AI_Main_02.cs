@@ -24,15 +24,15 @@ public class AI_Main_02 : MonoBehaviour
 	{
         rigidbody = GetComponent<Rigidbody>();
 	}
-	
-	// Update is called once per frame
-	void Update () 
-	{
+
+    // Update is called once per frame
+    void Update()
+    {
         //JumpTimer();
         Targeting();
-	}
-    
-	void DrawGismos()
+    }
+
+    void DrawGismos()
 	{
 		if (showDebug != true)
 			return;
