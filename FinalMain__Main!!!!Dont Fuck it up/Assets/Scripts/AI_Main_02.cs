@@ -50,7 +50,7 @@ public class AI_Main_02 : MonoBehaviour
 
     void Attacking()
     {
-        if (Vector3.Distance(this.gameObject.transform.position, currentTarget.transform.position) <= 20)
+        if (Vector3.Distance(gameObject.transform.position, currentTarget.transform.position) <= 20)
         {
             if (sphere == true)
             {

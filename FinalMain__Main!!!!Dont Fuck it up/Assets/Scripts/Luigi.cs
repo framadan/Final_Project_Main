@@ -8,6 +8,11 @@ public class Luigi : AI_Main_02
     public bool jumping;
     public float counter = 0;
     public GameObject spawner;
+    public GameObject luigi1;
+    public GameObject luigi2;
+    public GameObject luigi3;
+    public GameObject luigi4;
+
 
     void OnTriggerEnter(Collider other)
     {
@@ -19,13 +24,33 @@ public class Luigi : AI_Main_02
             this.gameObject.transform.position = spawner.transform.position;
             counter++;
         }
-        if (counter >= 4)
-        {
-            Destroy(self);
-        }
         if (other.gameObject.tag == "Side")
         {
             transform.Translate(0, 10, 0);
+        }
+    }
+    public virtual void LateUpdate()
+    {
+        CounterCheck();
+    }
+    void CounterCheck()
+    {
+        if (counter == 1)
+        {
+            luigi1.SetActive(false);
+        }
+        if (counter == 2)
+        {
+            luigi2.SetActive(false);
+        }
+        if (counter == 3)
+        {
+            luigi3.SetActive(false);
+        }
+        if (counter >= 4)
+        {
+            luigi4.SetActive(false);
+            Destroy(self);
         }
     }
 }

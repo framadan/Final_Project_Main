@@ -19,6 +19,10 @@ public class PlayerMovement : MonoBehaviour
     public float counter = 0;
     public GameObject spawner;
     public GameObject fist;
+    public GameObject face1;
+    public GameObject face2;
+    public GameObject face3;
+    public GameObject face4;
     // Use this for initialization
     void Start ()
     {
@@ -29,7 +33,9 @@ public class PlayerMovement : MonoBehaviour
 	void Update ()
     {
         Movement();
+        CounterCheck();
 	}
+    
 
     void Movement()
     {
@@ -148,6 +154,26 @@ public class PlayerMovement : MonoBehaviour
         if (counter >= 4)
         {
             Destroy(player);
+        }
+    }
+    void CounterCheck()
+    {
+        if (counter == 1)
+        {
+            print("1");
+            face1.SetActive(false);
+        }
+        if (counter == 2)
+        {
+            face2.SetActive(false);
+        }
+        if (counter == 3)
+        {
+            face3.SetActive(false);
+        }
+        if (counter == 4)
+        {
+            face4.SetActive(false);
         }
     }
     public void KnockBack(float value)
