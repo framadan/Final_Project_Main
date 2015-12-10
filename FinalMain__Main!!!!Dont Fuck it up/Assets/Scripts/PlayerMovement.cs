@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     public Transform rotating;
     public float counter = 0;
     public GameObject spawner;
+    public GameObject fist;
     // Use this for initialization
     void Start ()
     {
@@ -32,6 +33,14 @@ public class PlayerMovement : MonoBehaviour
 
     void Movement()
     {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            fist.SetActive(true);
+        }
+        else if (Input.GetKeyUp(KeyCode.Space))
+        {
+            fist.SetActive(false);
+        }
         if (Input.GetKey(KeyCode.D))
         {
             transform.rotation = Quaternion.Euler(0, -90, 0);
@@ -69,20 +78,31 @@ public class PlayerMovement : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.W) && canJump == true)
         {
+            player.layer = LayerMask.NameToLayer("Phasing");
             player.GetComponent<Rigidbody>().AddForce(Vector3.up * jump);
             canJump = false;
             hasJumped = true;
             player.GetComponent<Rigidbody>().AddForce(Vector3.down * forceDown);
         }
+        else if (Input.GetKeyUp(KeyCode.W))
+        {
+            player.layer = LayerMask.NameToLayer("Player");
+        }
         else
         {
             if (Input.GetKeyDown(KeyCode.W) && hasJumped == true)
-            {   
+            {
+                player.layer = LayerMask.NameToLayer("Phasing");
                 player.GetComponent<Rigidbody>().AddForce(Vector3.up * jump);
                     hasJumped = false;
                 player.GetComponent<Rigidbody>().AddForce(Vector3.down * forceDown);
             }
+            else if (Input.GetKeyUp(KeyCode.W))
+            {
+                player.layer = LayerMask.NameToLayer("Player");
+            }
         }
+        
         if(Input.GetKey (KeyCode.LeftShift) && Input.GetKey(KeyCode.A))
         {
             rigidbody.velocity = new Vector3(move*2, 0, 0);
@@ -115,7 +135,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if(other.gameObject.tag == "Side")
         {
-            transform.Translate(0, 2, 0);
+            transform.Translate(0, 10, 0);
         }
         if (other.gameObject.tag == "Boundary")
         {

@@ -25,7 +25,7 @@ public class Luigi : AI_Main_02
         }
         if (other.gameObject.tag == "Side")
         {
-            transform.Translate(0, 2, 0);
+            transform.Translate(0, 10, 0);
         }
     }
 }

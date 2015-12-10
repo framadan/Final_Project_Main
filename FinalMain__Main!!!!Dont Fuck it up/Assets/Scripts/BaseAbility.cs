@@ -28,21 +28,17 @@ public class BaseAbility : MonoBehaviour
 	
     public void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Fist")
         {
-            equalTarget = other.gameObject;
-            if (equalTarget == other.gameObject)
-            {
-                equalTarget.GetComponent<BaseAbility>().KnockBack(formula);
-                equalTarget.GetComponent<BaseAbility>().TakeDamage(damage);
-            }
+            this.gameObject.GetComponent<BaseAbility>().KnockBack(formula);
+            this.gameObject.GetComponent<BaseAbility>().TakeDamage(damage);
         }
     }
     
     public virtual void TakeDamage(float damage)
 	{
         KnockBack(damage);
-        health += damage; //+= baseKB;
+        health += damage += baseKB;
         if (health >= 50f)
         {
             //damage += 2f;
@@ -81,7 +77,7 @@ public class BaseAbility : MonoBehaviour
         //formula = (((((health / 10f + health * damage / 20f) * weight * 1.4f) + 18f) * scaledKB) + baseKB) * factors;
         //print(num);
         Vector3 direction = transform.InverseTransformDirection(0, 1, -1);
-        equalTarget.gameObject.GetComponent<Rigidbody>().AddForce(direction * num);
+        this.gameObject.GetComponent<Rigidbody>().AddForce(direction * num);
     }
 }
 

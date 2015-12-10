@@ -18,6 +18,8 @@ public class AI_Main_02 : MonoBehaviour
 	public float delay = 2f;
 	//public Transform target;
     public Rigidbody rigidbody;
+    public bool sphere = true;
+    public GameObject fist;
     
 	// Use this for initialization
 	void Start () 
@@ -30,6 +32,7 @@ public class AI_Main_02 : MonoBehaviour
     {
         //JumpTimer();
         Targeting();
+        Attacking();
     }
 
     void DrawGismos()
@@ -45,6 +48,17 @@ public class AI_Main_02 : MonoBehaviour
 		}
 	}
 
+    void Attacking()
+    {
+        if (Vector3.Distance(this.gameObject.transform.position, currentTarget.transform.position) <= 20)
+        {
+            if (sphere == true)
+            {
+                fist.SetActive(true);
+                sphere = false;
+            }
+        }
+    }
 	void Targeting()
 	{
         possibleTargets = Physics.OverlapSphere (transform.position, aggro);

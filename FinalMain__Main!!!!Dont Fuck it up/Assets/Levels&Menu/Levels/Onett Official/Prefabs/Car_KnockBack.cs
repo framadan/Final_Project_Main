@@ -19,7 +19,7 @@ public class Car_KnockBack : MonoBehaviour
     {
         if(other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<BaseAbility>().TakeDamage(damage);
+            other.gameObject.GetComponent<BaseAbility>().KnockBack(1200f);
         }
     }
 }

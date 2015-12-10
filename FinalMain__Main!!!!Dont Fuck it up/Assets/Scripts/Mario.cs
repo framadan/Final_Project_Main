@@ -10,12 +10,6 @@ public class Mario : AI_Main_02
     public bool hit2;
     public bool hit3;
 
-    
-    
-    public void LateUpdate()
-    {
-        AnimAttack();
-    }
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Boundary")
@@ -32,11 +26,11 @@ public class Mario : AI_Main_02
         }
         if (other.gameObject.tag == "Side")
         {
-            transform.Translate(0, 2, 0);
+            transform.Translate(0, 10, 0);
         }
     }
 
-    public virtual void AnimAttack()
+    /*public virtual void AnimAttack()
     {
         if(Vector3.Distance(gameObject.transform.position, currentTarget.transform.position) <= 50)
         {
@@ -61,5 +55,5 @@ public class Mario : AI_Main_02
                 hit1 = true;
             }
         }
-    }
+    }*/
 }
