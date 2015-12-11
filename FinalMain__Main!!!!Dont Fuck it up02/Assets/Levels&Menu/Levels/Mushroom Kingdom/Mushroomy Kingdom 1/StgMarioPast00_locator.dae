@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<COLLADA version="1.5.0" xmlns="http://www.collada.org/2008/03/COLLADASchema">
+	<asset>
+		<contributor>
+			<authoring_tool>BrawlBox</authoring_tool>
+		</contributor>
+		<created>2013-12-18T02:34:43Z</created>
+		<modified>2013-12-18T02:34:43Z</modified>
+		<unit meter="0.01" name="centimeter" />
+		<up_axis>Y_UP</up_axis>
+	</asset>
+	<library_visual_scenes>
+		<visual_scene id="RootNodeID" name="RootNode">
+			<node id="StgMarioPast00_locator-ID" name="StgMarioPast00_locator" sid="StgMarioPast00_locator-ID" type="JOINT">
+				<node id="blockLocatorA-ID" name="blockLocatorA" sid="blockLocatorA-ID" type="JOINT">
+					<node id="block_dummy_01-ID" name="block_dummy_01" sid="block_dummy_01-ID" type="JOINT">
+						<translate>123.2969 29.75003 8E-06</translate>
+					</node>
+					<node id="block_dummy_02-ID" name="block_dummy_02" sid="block_dummy_02-ID" type="JOINT">
+						<translate>140.2969 29.75003 8E-06</translate>
+					</node>
+					<node id="block_dummy_03-ID" name="block_dummy_03" sid="block_dummy_03-ID" type="JOINT">
+						<translate>607.7969 29.75001 8E-06</translate>
+					</node>
+					<node id="block_dummy_04-ID" name="block_dummy_04" sid="block_dummy_04-ID" type="JOINT">
+						<translate>157.2969 29.75003 8E-06</translate>
+					</node>
+					<node id="block_dummy_05-ID" name="block_dummy_05" sid="block_dummy_05-ID" type="JOINT">
+						<translate>624.7969 29.75001 8E-06</translate>
+					</node>
+					<node id="block_dummy_06-ID" name="block_dummy_06" sid="block_dummy_06-ID" type="JOINT">
+						<translate>633.2969 63.75001 2.3E-05</translate>
+					</node>
+					<node id="block_dummy_07-ID" name="block_dummy_07" sid="block_dummy_07-ID" type="JOINT">
+						<translate>641.7969 63.75001 2.3E-05</translate>
+					</node>
+					<node id="block_dummy_08-ID" name="block_dummy_08" sid="block_dummy_08-ID" type="JOINT">
+						<translate>650.2969 63.75001 2.3E-05</translate>
+					</node>
+					<node id="block_dummy_09-ID" name="block_dummy_09" sid="block_dummy_09-ID" type="JOINT">
+						<translate>658.7969 63.75001 2.3E-05</translate>
+					</node>
+					<node id="block_dummy_10-ID" name="block_dummy_10" sid="block_dummy_10-ID" type="JOINT">
+						<translate>667.2969 63.75001 2.3E-05</translate>
+					</node>
+					<node id="block_dummy_11-ID" name="block_dummy_11" sid="block_dummy_11-ID" type="JOINT">
+						<translate>675.7969 63.75001 2.3E-05</translate>
+					</node>
+					<node id="block_dummy_12-ID" name="block_dummy_12" sid="block_dummy_12-ID" type="JOINT">
+						<translate>684.2969 63.75001 2.3E-05</translate>
+					</node>
+					<node id="block_dummy_13-ID" name="block_dummy_13" sid="block_dummy_13-ID" type="JOINT">
+						<translate>692.7969 63.75001 2.3E-05</translate>
+					</node>
+					<node id="hatena_dummy_01_pwup-ID" name="hatena_dummy_01_pwup" sid="hatena_dummy_01_pwup-ID" type="JOINT">
+						<translate>89.2969 29.75003 8E-06</translate>
+					</node>
+					<node id="hatena_dummy_02-ID" name="hatena_dummy_02" sid="hatena_dummy_02-ID" type="JOINT">
+						<translate>140.2969 63.75001 1.7E-05</translate>
+					</node>
+					<node id="hatena_dummy_03-ID" name="hatena_dummy_03" sid="hatena_dummy_03-ID" type="JOINT">
+						<translate>131.7969 29.75003 8E-06</translate>
+					</node>
+					<node id="hatena_dummy_04-ID" name="hatena_dummy_04" sid="hatena_dummy_04-ID" type="JOINT">
+						<translate>148.7969 29.75003 8E-06</translate>
+					</node>
+					<node id="hatena_dummy_05__pwup-ID" name="hatena_dummy_05__pwup" sid="hatena_dummy_05__pwup-ID" type="JOINT">
+						<translate>616.2969 29.75001 8E-06</translate>
+					</node>
+					<node id="hatena_dummy_hide_1up-ID" name="hatena_dummy_hide_1up" sid="hatena_dummy_hide_1up-ID" type="JOINT">
+						<translate>497.297 29.75001 8E-06</translate>
+					</node>
+				</node>
+				<node id="blockLocatorB-ID" name="blockLocatorB" sid="blockLocatorB-ID" type="JOINT">
+					<node id="block_dummy_14-ID" name="block_dummy_14" sid="block_dummy_14-ID" type="JOINT">
+						<translate>-1041.203 63.75001 1.7E-05</translate>
+					</node>
+					<node id="block_dummy_16-ID" name="block_dummy_16" sid="block_dummy_16-ID" type="JOINT">
+						<translate>-1024.203 63.75001 1.7E-05</translate>
+					</node>
+					<node id="block_dummy_17-ID" name="block_dummy_17" sid="block_dummy_17-ID" type="JOINT">
+						<translate>-1032.703 63.75001 1.7E-05</translate>
+					</node>
+					<node id="block_dummy_18-ID" name="block_dummy_18" sid="block_dummy_18-ID" type="JOINT">
+						<translate>-964.7031 29.75001 8E-06</translate>
+					</node>
+					<node id="block_dummy_20-ID" name="block_dummy_20" sid="block_dummy_20-ID" type="JOINT">
+						<translate>-811.7031 29.75003 8E-06</translate>
+					</node>
+					<node id="block_dummy_21-ID" name="block_dummy_21" sid="block_dummy_21-ID" type="JOINT">
+						<translate>-777.7031 63.75001 1.7E-05</translate>
+					</node>
+					<node id="block_dummy_22-ID" name="block_dummy_22" sid="block_dummy_22-ID" type="JOINT">
+						<translate>-769.2031 63.75001 1.7E-05</translate>
+					</node>
+					<node id="block_dummy_23-ID" name="block_dummy_23" sid="block_dummy_23-ID" type="JOINT">
+						<translate>-726.7031 63.75001 1.7E-05</translate>
+					</node>
+					<node id="block_dummy_24-ID" name="block_dummy_24" sid="block_dummy_24-ID" type="JOINT">
+						<translate>-718.2031 29.75001 1.1E-05</translate>
+					</node>
+					<node id="block_dummy_25-ID" name="block_dummy_25" sid="block_dummy_25-ID" type="JOINT">
+						<translate>-386.7031 29.75001 1.1E-05</translate>
+					</node>
+					<node id="block_dummy_26-ID" name="block_dummy_26" sid="block_dummy_26-ID" type="JOINT">
+						<translate>-709.7031 29.75001 1.1E-05</translate>
+					</node>
+					<node id="block_dummy_27-ID" name="block_dummy_27" sid="block_dummy_27-ID" type="JOINT">
+						<translate>-701.2031 63.75001 1.7E-05</translate>
+					</node>
+					<node id="block_dummy_28-ID" name="block_dummy_28" sid="block_dummy_28-ID" type="JOINT">
+						<translate>-378.2031 29.75001 1.1E-05</translate>
+					</node>
+					<node id="block_dummy_29-ID" name="block_dummy_29" sid="block_dummy_29-ID" type="JOINT">
+						<translate>-361.7031 29.75001 1.1E-05</translate>
+					</node>
+					<node id="block_dummy_31-ID" name="block_dummy_31" sid="block_dummy_31-ID" type="JOINT">
+						<translate>-786.2031 63.75001 1.7E-05</translate>
+					</node>
+					<node id="block_dummy_item_01_10coin-ID" name="block_dummy_item_01_10coin" sid="block_dummy_item_01_10coin-ID" type="JOINT">
+						<translate>-1015.703 29.75001 8E-06</translate>
+					</node>
+					<node id="block_dummy_item_02_star-ID" name="block_dummy_item_02_star" sid="block_dummy_item_02_star-ID" type="JOINT">
+						<translate>-956.2031 29.75001 8E-06</translate>
+					</node>
+					<node id="hatena_dummy_06-ID" name="hatena_dummy_06" sid="hatena_dummy_06-ID" type="JOINT">
+						<translate>-1015.703 63.75001 1.7E-05</translate>
+					</node>
+					<node id="hatena_dummy_07-ID" name="hatena_dummy_07" sid="hatena_dummy_07-ID" type="JOINT">
+						<translate>-913.7031 29.75001 8E-06</translate>
+					</node>
+					<node id="hatena_dummy_08__pwup-ID" name="hatena_dummy_08__pwup" sid="hatena_dummy_08__pwup-ID" type="JOINT">
+						<translate>-888.2031 63.75001 1.7E-05</translate>
+					</node>
+					<node id="hatena_dummy_09-ID" name="hatena_dummy_09" sid="hatena_dummy_09-ID" type="JOINT">
+						<translate>-888.2031 29.75001 8E-06</translate>
+					</node>
+					<node id="hatena_dummy_10-ID" name="hatena_dummy_10" sid="hatena_dummy_10-ID" type="JOINT">
+						<translate>-862.7031 29.75001 8E-06</translate>
+					</node>
+					<node id="hatena_dummy_11-ID" name="hatena_dummy_11" sid="hatena_dummy_11-ID" type="JOINT">
+						<translate>-718.2031 63.75001 1.7E-05</translate>
+					</node>
+					<node id="hatena_dummy_12-ID" name="hatena_dummy_12" sid="hatena_dummy_12-ID" type="JOINT">
+						<translate>-709.7031 63.75001 1.7E-05</translate>
+					</node>
+					<node id="hatena_dummy_13-ID" name="hatena_dummy_13" sid="hatena_dummy_13-ID" type="JOINT">
+						<translate>-369.7031 29.75001 8E-06</translate>
+					</node>
+				</node>
+			</node>
+		</visual_scene>
+	</library_visual_scenes>
+	<scene>
+		<instance_visual_scene url="#RootNodeID" />
+	</scene>
+</COLLADA>

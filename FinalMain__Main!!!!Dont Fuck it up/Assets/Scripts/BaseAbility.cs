@@ -13,6 +13,7 @@ public class BaseAbility : MonoBehaviour
 	float formula;
     public GameObject equalTarget;
     public bool hasHit;
+    
 	// Use this for initialization
 	void Start () 
 	{
@@ -32,6 +33,7 @@ public class BaseAbility : MonoBehaviour
         {
             this.gameObject.GetComponent<BaseAbility>().KnockBack(formula);
             this.gameObject.GetComponent<BaseAbility>().TakeDamage(damage);
+            
         }
     }
     

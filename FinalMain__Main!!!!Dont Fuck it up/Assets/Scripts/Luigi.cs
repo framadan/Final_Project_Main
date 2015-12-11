@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class Luigi : AI_Main_02
 {
-    public int damage = 25;
+    
     public bool jumping;
     public float counter = 0;
     public GameObject spawner;

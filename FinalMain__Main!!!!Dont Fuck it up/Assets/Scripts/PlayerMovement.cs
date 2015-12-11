@@ -18,16 +18,22 @@ public class PlayerMovement : MonoBehaviour
     public Transform rotating;
     public float counter = 0;
     public GameObject spawner;
-    public GameObject fist;
+    public GameObject fist1;
+    public GameObject fist2;
+    public GameObject fist3;
+    public GameObject fist4;
     public GameObject face1;
     public GameObject face2;
     public GameObject face3;
     public GameObject face4;
+    
+       
     // Use this for initialization
     void Start ()
     {
         rigidbody = GetComponent<Rigidbody>();
-	}
+       
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -35,17 +41,25 @@ public class PlayerMovement : MonoBehaviour
         Movement();
         CounterCheck();
 	}
+
     
 
     void Movement()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            fist.SetActive(true);
+            fist1.SetActive(true);
+            fist2.SetActive(true);
+            fist3.SetActive(true);
+            fist4.SetActive(true);
+            
         }
         else if (Input.GetKeyUp(KeyCode.Space))
         {
-            fist.SetActive(false);
+            fist1.SetActive(false);
+            fist2.SetActive(false);
+            fist3.SetActive(false);
+            fist4.SetActive(false);
         }
         if (Input.GetKey(KeyCode.D))
         {

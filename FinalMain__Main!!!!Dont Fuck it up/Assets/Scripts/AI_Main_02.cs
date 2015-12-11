@@ -19,21 +19,29 @@ public class AI_Main_02 : MonoBehaviour
 	//public Transform target;
     public Rigidbody rigidbody;
     public bool sphere = true;
-    public GameObject fist;
+    public GameObject fist1;
+    public GameObject fist2;
+    public GameObject fist3;
+    public GameObject fist4;
     
-	// Use this for initialization
-	void Start () 
+    public bool canJump;
+
+    // Use this for initialization
+    void Start () 
 	{
         rigidbody = GetComponent<Rigidbody>();
-	}
+        
+    }
 
     // Update is called once per frame
     void Update()
     {
         //JumpTimer();
         Targeting();
-        Attacking();
+        //Attacking();
     }
+
+    
 
     void DrawGismos()
 	{
@@ -48,17 +56,28 @@ public class AI_Main_02 : MonoBehaviour
 		}
 	}
 
-    void Attacking()
+    /*void Attacking()
     {
-        if (Vector3.Distance(gameObject.transform.position, currentTarget.transform.position) <= 20)
+        if (Vector3.Distance(gameObject.transform.position, currentTarget.transform.position) <= 20) 
         {
+            sphere = true;
             if (sphere == true)
             {
-                fist.SetActive(true);
+                fist1.SetActive(true);
+                fist2.SetActive(true);
+                fist3.SetActive(true);
+                fist4.SetActive(true);
                 sphere = false;
             }
+            else if (sphere == false)
+            {
+                fist1.SetActive(false);
+                fist2.SetActive(false);
+                fist3.SetActive(false);
+                fist4.SetActive(false);
+            }
         }
-    }
+    }*/
 	void Targeting()
 	{
         possibleTargets = Physics.OverlapSphere (transform.position, aggro);
