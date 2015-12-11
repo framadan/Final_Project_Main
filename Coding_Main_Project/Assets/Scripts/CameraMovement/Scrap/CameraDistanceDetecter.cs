@@ -65,8 +65,8 @@ public class CameraDistanceDetecter : MonoBehaviour
 				xMax = playerObjects [i].transform.position.x;
 			}
 		}
-		cameraMovement.xMax = xMax;
-		cameraMovement.xMin = xMin;
+		//cameraMovement.xMax = xMax;
+		//cameraMovement.xMin = xMin;
 
         //playerOneDistance = Vector3.Distance(playerOne.transform.position, transform.position);
        // playerTwoDistance = Vector3.Distance(playerTwo.transform.position, transform.position);
