@@ -28,6 +28,13 @@ public class PlayerMovementEric : MonoBehaviour
 	public bool isCrouching = false;
 	public bool isJumping = false;
 
+	public GameObject attackHitBox = null;
+	public GameObject specialHitBox = null;
+	public GameObject playerShield = null;
+	public GameObject grabHitBox = null;
+
+	public GameObject attackPosition = null;
+
 
 	CharacterController characterController = null;
 
@@ -99,7 +106,7 @@ public class PlayerMovementEric : MonoBehaviour
 			isCrouching = false;
 		}
 
-		if (isJumping == true) 
+		if (isJumping == true) //I don't think this is working the way I want it to. Whatever.
 		{
 			float timer = 0.0f;
 			timer += Time.deltaTime;
@@ -114,12 +121,12 @@ public class PlayerMovementEric : MonoBehaviour
 
 		if(Input.GetKeyDown (attack))
 		{
-			//attack
+			Instantiate(attackHitBox, attackPosition.transform.position, attackPosition.transform.rotation);
 			print ("attack");
 		}
 		if(Input.GetKeyDown (special))
 		{
-			//special attack
+			Instantiate(specialHitBox, attackPosition.transform.position, attackPosition.transform.rotation);
 			print ("special");
 		}
 		if(Input.GetKey (shield))
