@@ -30,11 +30,17 @@ public class PlayerMovementEric : MonoBehaviour
 
 	public GameObject attackHitBox = null;
 	public GameObject specialHitBox = null;
+	public GameObject smashHitBox = null;
+	public GameObject specialSmashHitBox = null;
 	public GameObject playerShield = null;
 	public GameObject grabHitBox = null;
 
 	public GameObject attackPosition = null;
 
+	private bool facingLeft = false;
+	private bool facingRight = true;
+
+	public bool hasItem = false;
 
 	CharacterController characterController = null;
 
@@ -81,12 +87,24 @@ public class PlayerMovementEric : MonoBehaviour
 		//basic movements:
 		if(Input.GetKey(left))
 		{
-			transform.Translate(Vector3.left * Time.deltaTime * movementSpeed);
+			transform.Translate(Vector3.right * Time.deltaTime * movementSpeed);
+			if(facingRight)
+			{
+				transform.Rotate(0,180,0);
+				facingRight = false;
+				facingLeft = true;
+			}
 		}
 
 		if(Input.GetKey(right))
 		{
 			transform.Translate(Vector3.right * Time.deltaTime * movementSpeed);
+			if(facingLeft)
+			{
+				transform.Rotate(0,180,0);
+				facingRight = true;
+				facingLeft = false;
+			}
 		}
 
 		if(Input.GetKey(jump) && isGrounded == true)
@@ -124,6 +142,7 @@ public class PlayerMovementEric : MonoBehaviour
 			Instantiate(attackHitBox, attackPosition.transform.position, attackPosition.transform.rotation);
 			print ("attack");
 		}
+
 		if(Input.GetKeyDown (special))
 		{
 			Instantiate(specialHitBox, attackPosition.transform.position, attackPosition.transform.rotation);
@@ -140,9 +159,21 @@ public class PlayerMovementEric : MonoBehaviour
 			print ("grabbing");
 		}
 
+		//smash attacks are clunky. Need better way. Also creates both attach and smash version at same time.
 
+		if(Input.GetKeyDown (attack) && Input.GetKeyDown(left) || Input.GetKeyDown (attack) && Input.GetKeyDown(right))					 //smash attack
+		{
+			Instantiate(smashHitBox, attackPosition.transform.position, attackPosition.transform.rotation);
+			print ("SmashAttack");
+		}
 
-		//In Case we need to go back:
+		if(Input.GetKeyDown (special) && Input.GetKeyDown(left) || Input.GetKeyDown (special) && Input.GetKeyDown(right))					//special smash attack
+		{
+			Instantiate(smashHitBox, attackPosition.transform.position, attackPosition.transform.rotation);
+			print ("SpecialSmashAttack");
+		}
+
+		//In Case we need to go back(Written By Eric):
 
 //		float sideSpeed = Input.GetAxis ("Horizontal");
 //		if(IsGrounded)
