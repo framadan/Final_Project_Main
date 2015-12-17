@@ -3,7 +3,7 @@ using System.Collections;
 
 public class HitBox : MonoBehaviour
 {
-    
+    public float force = 600.0f;
 
     // Update is called once per frame
     void Update()
@@ -15,7 +15,8 @@ public class HitBox : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            other.rigidbody.AddForce(transform.right * 600);
+            other.rigidbody.AddForce(transform.up * force);
+            other.rigidbody.useGravity = true;
         }
     }
 }
