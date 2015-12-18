@@ -6,10 +6,13 @@ public class HitBox : MonoBehaviour
     public float force = 600.0f;
     public float timeSpentActive = 0.3f;
 
+    public GameObject hitBoxSpawner = GameObject.FindWithTag("HitBoxTrigger");
+
     // Update is called once per frame
     void Update()
     {
         TriggerDestroy();
+        TriggerPosition();
     }
 
     public void OnCollisionEnter(Collision other)
@@ -28,5 +31,11 @@ public class HitBox : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    //folows HitBoxSpawner
+    void TriggerPosition()
+    {
+        transform.position = hitBoxSpawner.transform.position;
     }
 }
